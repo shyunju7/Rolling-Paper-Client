@@ -45,7 +45,7 @@ const messageList: Message[] = [
 ];
 
 const Main = () => {
-  const { value, onChange }: any = useInput("");
+  const { value, onChange, setValue }: any = useInput("");
   const [messages, setMessags] = useState(messageList);
   const nextId = useRef(4);
   return (
@@ -61,6 +61,7 @@ const Main = () => {
           };
           setMessags([...messages, newMessage]);
           nextId.current += 1;
+          setValue("");
         }}
       >
         글쓰기
