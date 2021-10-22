@@ -22,7 +22,10 @@ export const Title = styled.h3`
 `;
 
 export const InputContainer = styled.div`
+  margin-top: 12px;
   display: flex;
+  position: absolute;
+  top: 60px;
   flex-direction: column;
   align-items: center;
 `;
@@ -30,8 +33,10 @@ export const InputContainer = styled.div`
 export const InputMessage = styled.textarea`
   border: none;
   width: 40vw;
+  height: 15vh;
   border-radius: 32px;
   padding: 12px;
+  margin-top: 16px;
   color: ${(props) => (props.color ? props.color : "#000000")};
 `;
 

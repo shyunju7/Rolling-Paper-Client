@@ -44,15 +44,15 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           ⭐️
         </span>
       </Title>
-      <ColorPicker
-        aria-label="colorPicker"
-        role="img"
-        onClick={() => setShowColorPicker(!showColorPicker)}
-      >
-        🎨
-      </ColorPicker>
+
       <InputContainer>
-        <InputMessage color={pickedColor} value={value} onChange={onChange} />
+        <ColorPicker
+          aria-label="colorPicker"
+          role="img"
+          onClick={() => setShowColorPicker(!showColorPicker)}
+        >
+          🎨
+        </ColorPicker>
         {showColorPicker ? (
           <TwitterPicker
             color={pickedColor}
@@ -60,7 +60,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           />
         ) : null}
       </InputContainer>
-
+      <InputMessage color={pickedColor} value={value} onChange={onChange} />
       <ButtonContainer>
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
