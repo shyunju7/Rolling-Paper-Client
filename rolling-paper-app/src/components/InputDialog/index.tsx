@@ -68,6 +68,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
             const newMessage = {
               id: nextId.current,
               color: pickedColor,
+              position: { x: 0, y: 0 },
               userName: "익명",
               message: value,
             };

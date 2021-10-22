@@ -20,7 +20,6 @@ interface Message {
 const Sticker = ({ message, userName, color, position }: Message) => {
   const { x, y } = position;
 
-  console.log(`x`, x, `y`, y);
   return (
     <Draggable>
       <StickerContainer x={x} y={y} color={color}>

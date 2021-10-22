@@ -1,9 +1,7 @@
 import * as React from "react";
 import Sticker from "../components/Sticker";
 import styled from "styled-components";
-import { useState, useRef } from "react";
-import { useInput } from "../hooks/useInput";
-import { TwitterPicker } from "react-color";
+import { useState } from "react";
 import InputDialog from "../components/InputDialog";
 
 const Container = styled.div`
@@ -25,10 +23,6 @@ const UserName = styled.h1`
   border-radius: 50%;
 `;
 
-const InputMessage = styled.input`
-  color: ${(props) => (props.color ? props.color : "#000000")};
-`;
-
 interface MessagePosition {
   x: number;
   y: number;
@@ -48,14 +42,15 @@ const messageList: Message[] = [
     position: { x: 45, y: 24 },
     color: "#3BB4F9",
     userName: "나무친구",
-    message: "안녕? 지건아 넌 멋진 어른이 될거야!!!",
+    message: "안녕? 예지야 넌 멋진 어른이 될거야!!!",
   },
   {
     id: 2,
     position: { x: 705, y: 4 },
     color: "#F93BCF",
     userName: "돌맹이친구",
-    message: "어이, 공! 넌 정말 탱탱햇지 마치 탱탱볼처럼 키키",
+    message:
+      "어이, 넌 너무 소심하고 조용해 내년엔 더 말도 많이 하는 친구가 되길 바랄께!",
   },
   {
     id: 3,
@@ -76,17 +71,17 @@ const messageList: Message[] = [
     position: { x: 65, y: 314 },
     color: "#3c2d",
     userName: "첵스초코친구",
-    message: "지거나 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
+    message: "예지얌 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
   },
 ];
 
-const Main = ({ props }: any) => {
+const Main = () => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages] = useState(messageList);
 
   return (
     <Container>
-      <UserName onClick={() => setVisible(!isVisible)}>공지건</UserName>
+      <UserName onClick={() => setVisible(!isVisible)}>이예지</UserName>
 
       {isVisible ? (
         <InputDialog
