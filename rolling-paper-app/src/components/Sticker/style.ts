@@ -7,7 +7,7 @@ export const StickerContainer = styled.div`
   top: 0;
   left: 0;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: ${(props) => (props.color ? props.color : "#000000")};
 `;
 

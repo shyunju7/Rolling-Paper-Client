@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useState, useRef } from "react";
 import { useInput } from "../hooks/useInput";
 import { TwitterPicker } from "react-color";
+import InputDialog from "../components/InputDialog";
 
 const Container = styled.div`
   width: 100vw;
@@ -18,6 +19,10 @@ const UserName = styled.h1`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 3rem;
+  cursor: pointer;
+  background-color: lavender;
+  padding: 1rem;
+  border-radius: 50%;
 `;
 
 const InputMessage = styled.input`
@@ -65,45 +70,20 @@ const messageList: Message[] = [
 ];
 
 const Main = ({ props }: any) => {
-  const { value, onChange, setValue }: any = useInput("");
+  const [isVisible, setVisible] = useState(false);
   const [messages, setMessages] = useState(messageList);
-  const [pickedColor, setColor] = useState("#000000");
-  const nextId = useRef(4);
 
-  const handleSetColor = (color: any) => {
-    setColor(color.hex);
-  };
   return (
     <Container>
-      <UserName>공지건</UserName>
-      <button
-        onClick={() => {
-          console.log("click");
-          const newMessage = {
-            id: nextId.current,
-            color: pickedColor,
-            userName: "익명",
-            message: value,
-          };
-          setMessages([...messages, newMessage]);
-          nextId.current += 1;
-          setValue("");
-          setColor("#000000");
-        }}
-      >
-        글쓰기
-      </button>
+      <UserName onClick={() => setVisible(!isVisible)}>공지건</UserName>
 
-      <div>
-        <InputMessage
-          color={pickedColor}
-          type="text"
-          value={value}
-          onChange={onChange}
+      {isVisible ? (
+        <InputDialog
+          setVisible={setVisible}
+          messages={messages}
+          setMessages={setMessages}
         />
-      </div>
-
-      <TwitterPicker color={pickedColor} onChangeComplete={handleSetColor} />
+      ) : null}
 
       {messages &&
         messages.map((item, index) => (
