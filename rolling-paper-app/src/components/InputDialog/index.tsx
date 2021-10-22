@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import {
   ButtonContainer,
-  ColorPicker,
+  TextSettingContainer,
+  TextSetting,
   Container,
   InputContainer,
   InputMessage,
@@ -46,13 +47,21 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
       </Title>
 
       <InputContainer>
-        <ColorPicker
-          aria-label="colorPicker"
-          role="img"
-          onClick={() => setShowColorPicker(!showColorPicker)}
-        >
-          🎨
-        </ColorPicker>
+        <TextSettingContainer>
+          <TextSetting
+            aria-label="colorPicker"
+            role="img"
+            onClick={() => setShowColorPicker(!showColorPicker)}
+          >
+            🎨
+          </TextSetting>
+          <TextSetting aria-label="colorPicker" role="img">
+            🛠
+          </TextSetting>
+          <TextSetting aria-label="colorPicker" role="img">
+            ✏️
+          </TextSetting>
+        </TextSettingContainer>
         {showColorPicker ? (
           <TwitterPicker
             color={pickedColor}

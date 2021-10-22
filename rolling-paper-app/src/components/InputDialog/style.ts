@@ -27,7 +27,6 @@ export const InputContainer = styled.div`
   position: absolute;
   top: 60px;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const InputMessage = styled.textarea`
@@ -40,7 +39,13 @@ export const InputMessage = styled.textarea`
   color: ${(props) => (props.color ? props.color : "#000000")};
 `;
 
-export const ColorPicker = styled.span`
+export const TextSettingContainer = styled.div`
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const TextSetting = styled.span`
   cursor: pointer;
   margin-left: 8px;
 `;
