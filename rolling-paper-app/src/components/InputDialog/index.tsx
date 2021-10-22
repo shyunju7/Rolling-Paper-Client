@@ -28,6 +28,10 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
   const handleSetColor = (color: any) => {
     setColor(color.hex);
   };
+
+  const replaceNewline = () => {
+    return setValue(value.replaceAll("<br>", "\r\n"));
+  };
   return (
     <Container>
       <Title>
@@ -40,32 +44,29 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           ⭐️
         </span>
       </Title>
-
+      <ColorPicker
+        aria-label="colorPicker"
+        role="img"
+        onClick={() => setShowColorPicker(!showColorPicker)}
+      >
+        🎨
+      </ColorPicker>
       <InputContainer>
-        <InputMessage
-          color={pickedColor}
-          type="text"
-          value={value}
-          onChange={onChange}
-        />
-
-        <ColorPicker
-          aria-label="colorPicker"
-          role="img"
-          onClick={() => setShowColorPicker(!showColorPicker)}
-        >
-          🎨
-        </ColorPicker>
+        <InputMessage color={pickedColor} value={value} onChange={onChange} />
+        {showColorPicker ? (
+          <TwitterPicker
+            color={pickedColor}
+            onChangeComplete={handleSetColor}
+          />
+        ) : null}
       </InputContainer>
-      {showColorPicker ? (
-        <TwitterPicker color={pickedColor} onChangeComplete={handleSetColor} />
-      ) : null}
 
       <ButtonContainer>
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
           onClick={() => {
-            console.log("click");
+            replaceNewline();
+            console.log(`value`, value);
             const newMessage = {
               id: nextId.current,
               color: pickedColor,

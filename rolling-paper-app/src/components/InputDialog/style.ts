@@ -23,10 +23,11 @@ export const Title = styled.h3`
 
 export const InputContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
-export const InputMessage = styled.input`
+export const InputMessage = styled.textarea`
   border: none;
   width: 40vw;
   border-radius: 32px;
