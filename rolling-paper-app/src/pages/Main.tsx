@@ -14,6 +14,8 @@ const Main = () => {
     <Container>
       <h1>MAIN</h1>
       <Sticker />
+      <Sticker />
+      <Sticker />
     </Container>
   );
 };
