@@ -1,9 +1,10 @@
 import styled from "styled-components";
-interface Position {
-  x: any;
-  y: any;
-}
-export const StickerContainer = styled.div<{ x: any; y: any }>`
+
+export const StickerContainer = styled.div<{
+  x: number;
+  y: number;
+  disabled: boolean;
+}>`
   width: 300px;
   background-color: transparent;
   position: absolute;
@@ -12,6 +13,8 @@ export const StickerContainer = styled.div<{ x: any; y: any }>`
   cursor: pointer;
   font-size: 1.2rem;
   color: ${(props) => (props.color ? props.color : "#000000")};
+
+  border: ${(props) => (props.disabled ? "none" : "1px dotted #c4c4c4")};
 `;
 
 export const Author = styled.h3`

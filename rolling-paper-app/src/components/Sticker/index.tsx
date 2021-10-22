@@ -20,12 +20,18 @@ interface Message {
 
 const Sticker = ({ message, userName, color, position, disabled }: Message) => {
   const { x, y } = position;
+  const [disabledMessage, setDisabledMessage] = useState(disabled);
 
   return (
-    <Draggable disabled={disabled}>
-      <StickerContainer x={x} y={y} color={color}>
+    <Draggable disabled={disabledMessage}>
+      <StickerContainer x={x} y={y} color={color} disabled={disabledMessage}>
         {message}
         <Author color={color}>-{userName}-</Author>
+        {disabledMessage ? null : (
+          <button onClick={() => setDisabledMessage(!disabledMessage)}>
+            저장하기
+          </button>
+        )}
       </StickerContainer>
     </Draggable>
   );
