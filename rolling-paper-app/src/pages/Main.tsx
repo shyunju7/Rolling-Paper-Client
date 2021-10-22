@@ -3,8 +3,10 @@ import Sticker from "../components/Sticker";
 import styled from "styled-components";
 import { useState } from "react";
 import InputDialog from "../components/InputDialog";
+import Header from "../components/Header";
 
 const Container = styled.div`
+  margin-top: 8vh;
   width: 100vw;
   height: 100vh;
   position: relative;
@@ -44,11 +46,11 @@ const messageList: Message[] = [
     disabled: true,
     color: "#3BB4F9",
     userName: "나무친구",
-    message: "안녕? 예지야 넌 멋진 어른이 될거야!!!",
+    message: "안녕? 개똥벌레야 넌 멋진 어른이 될거야!!!",
   },
   {
     id: 2,
-    position: { x: 705, y: 4 },
+    position: { x: 705, y: 44 },
     disabled: true,
     color: "#F93BCF",
     userName: "돌맹이친구",
@@ -77,7 +79,7 @@ const messageList: Message[] = [
     disabled: true,
     color: "#3c2d",
     userName: "첵스초코친구",
-    message: "예지얌 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
+    message: "개똥벌레얌 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
   },
 ];
 
@@ -86,30 +88,33 @@ const Main = () => {
   const [messages, setMessages] = useState(messageList);
 
   return (
-    <Container>
-      <UserName onClick={() => setVisible(!isVisible)}>이예지</UserName>
+    <div>
+      <Header />
+      <Container>
+        <UserName onClick={() => setVisible(!isVisible)}>개똥벌레</UserName>
 
-      {isVisible ? (
-        <InputDialog
-          setVisible={setVisible}
-          messages={messages}
-          setMessages={setMessages}
-        />
-      ) : null}
-
-      {messages &&
-        messages.map((item, index) => (
-          <Sticker
-            key={index}
-            id={item.id}
-            position={item.position}
-            disabled={item.disabled}
-            color={item.color}
-            message={item.message}
-            userName={item.userName}
+        {isVisible ? (
+          <InputDialog
+            setVisible={setVisible}
+            messages={messages}
+            setMessages={setMessages}
           />
-        ))}
-    </Container>
+        ) : null}
+
+        {messages &&
+          messages.map((item, index) => (
+            <Sticker
+              key={index}
+              id={item.id}
+              position={item.position}
+              disabled={item.disabled}
+              color={item.color}
+              message={item.message}
+              userName={item.userName}
+            />
+          ))}
+      </Container>
+    </div>
   );
 };
 

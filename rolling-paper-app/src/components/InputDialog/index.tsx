@@ -23,7 +23,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
   const { value, onChange, setValue }: any = useInput("");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [pickedColor, setColor] = useState("#000000");
-  const nextId = useRef(4);
+  const nextId = useRef(5);
 
   const handleSetColor = (color: any) => {
     setColor(color.hex);
