@@ -14,6 +14,7 @@ import { TwitterPicker } from "react-color";
 interface Message {
   id: number;
   color: string;
+  disabled: boolean;
   userName: string;
   message: string;
 }
@@ -69,6 +70,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
               id: nextId.current,
               color: pickedColor,
               position: { x: 0, y: 0 },
+              disabled: false,
               userName: "익명",
               message: value,
             };

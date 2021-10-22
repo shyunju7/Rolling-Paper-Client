@@ -31,6 +31,7 @@ interface MessagePosition {
 interface Message {
   id: number;
   position: MessagePosition;
+  disabled: boolean;
   color: string;
   userName: string;
   message: string;
@@ -40,6 +41,7 @@ const messageList: Message[] = [
   {
     id: 1,
     position: { x: 45, y: 24 },
+    disabled: true,
     color: "#3BB4F9",
     userName: "나무친구",
     message: "안녕? 예지야 넌 멋진 어른이 될거야!!!",
@@ -47,6 +49,7 @@ const messageList: Message[] = [
   {
     id: 2,
     position: { x: 705, y: 4 },
+    disabled: true,
     color: "#F93BCF",
     userName: "돌맹이친구",
     message:
@@ -55,13 +58,15 @@ const messageList: Message[] = [
   {
     id: 3,
     position: { x: 445, y: 84 },
+    disabled: true,
     color: "#F9AD3B",
     userName: "코끼리친구",
     message: "넌 정말 친절해.",
   },
   {
     id: 4,
-    position: { x: 545, y: 424 },
+    position: { x: 415, y: 424 },
+    disabled: true,
     color: "#989898",
     userName: "호구마친구",
     message: "2학년 가도 잘지내",
@@ -69,6 +74,7 @@ const messageList: Message[] = [
   {
     id: 5,
     position: { x: 65, y: 314 },
+    disabled: true,
     color: "#3c2d",
     userName: "첵스초코친구",
     message: "예지얌 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
@@ -97,6 +103,7 @@ const Main = () => {
             key={index}
             id={item.id}
             position={item.position}
+            disabled={item.disabled}
             color={item.color}
             message={item.message}
             userName={item.userName}

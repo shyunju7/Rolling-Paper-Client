@@ -12,16 +12,17 @@ interface MessagePosition {
 interface Message {
   id: number;
   position: MessagePosition;
+  disabled: boolean;
   color: string;
   userName: string;
   message: string;
 }
 
-const Sticker = ({ message, userName, color, position }: Message) => {
+const Sticker = ({ message, userName, color, position, disabled }: Message) => {
   const { x, y } = position;
 
   return (
-    <Draggable>
+    <Draggable disabled={disabled}>
       <StickerContainer x={x} y={y} color={color}>
         {message}
         <Author color={color}>-{userName}-</Author>
