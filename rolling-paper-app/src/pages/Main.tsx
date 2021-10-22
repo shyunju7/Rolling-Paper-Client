@@ -23,6 +23,7 @@ const UserName = styled.h1`
   background-color: lavender;
   padding: 1rem;
   border-radius: 50%;
+  z-index: 10;
 `;
 
 interface MessagePosition {
