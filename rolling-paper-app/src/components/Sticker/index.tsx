@@ -4,10 +4,16 @@ import { useEffect, useRef } from "react";
 import { StickerContainer } from "./style";
 import Draggable from "react-draggable";
 
-const Sticker = () => {
+interface Message {
+  id: number;
+  userName: string;
+  message: string;
+}
+
+const Sticker = ({ message }: Message) => {
   return (
     <Draggable>
-      <StickerContainer />
+      <StickerContainer>{message}</StickerContainer>
     </Draggable>
   );
 };
