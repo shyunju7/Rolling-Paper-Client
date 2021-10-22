@@ -29,8 +29,14 @@ const InputMessage = styled.input`
   color: ${(props) => (props.color ? props.color : "#000000")};
 `;
 
+interface MessagePosition {
+  x: number;
+  y: number;
+}
+
 interface Message {
   id: number;
+  position: MessagePosition;
   color: string;
   userName: string;
   message: string;
@@ -39,30 +45,35 @@ interface Message {
 const messageList: Message[] = [
   {
     id: 1,
-    color: "#cdcdcd",
+    position: { x: 45, y: 24 },
+    color: "#3BB4F9",
     userName: "나무친구",
     message: "안녕? 지건아 넌 멋진 어른이 될거야!!!",
   },
   {
     id: 2,
-    color: "#daa3a",
+    position: { x: 705, y: 4 },
+    color: "#F93BCF",
     userName: "돌맹이친구",
     message: "어이, 공! 넌 정말 탱탱햇지 마치 탱탱볼처럼 키키",
   },
   {
     id: 3,
-    color: "#27676",
+    position: { x: 445, y: 84 },
+    color: "#F9AD3B",
     userName: "코끼리친구",
     message: "넌 정말 친절해.",
   },
   {
     id: 4,
+    position: { x: 545, y: 424 },
     color: "#989898",
     userName: "호구마친구",
     message: "2학년 가도 잘지내",
   },
   {
     id: 5,
+    position: { x: 65, y: 314 },
     color: "#3c2d",
     userName: "첵스초코친구",
     message: "지거나 너랑 같은반이어서 좋았어 넌 참 귀여웡>_<",
@@ -90,6 +101,7 @@ const Main = ({ props }: any) => {
           <Sticker
             key={index}
             id={item.id}
+            position={item.position}
             color={item.color}
             message={item.message}
             userName={item.userName}
