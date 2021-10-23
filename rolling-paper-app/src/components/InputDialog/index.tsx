@@ -17,14 +17,14 @@ interface Message {
   id: number;
   color: string;
   disabled: boolean;
-  font: number;
+  font: string;
   userName: string;
   message: string;
 }
 
 const InputDialog = ({ setVisible, messages, setMessages }: any) => {
   const { value, onChange, setValue }: any = useInput("");
-  const [fontValue, setFontValue] = useState(0);
+  const [fontValue, setFontValue] = useState("nanum");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showFontDropdown, setShowFontDropdown] = useState(false);
   const [pickedColor, setColor] = useState("#000000");
@@ -55,7 +55,10 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           <TextSetting
             aria-label="colorPicker"
             role="img"
-            onClick={() => setShowColorPicker(!showColorPicker)}
+            onClick={() => {
+              if (showFontDropdown) setShowFontDropdown(false);
+              setShowColorPicker(!showColorPicker);
+            }}
           >
             🎨
           </TextSetting>
@@ -65,7 +68,10 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           <TextSetting
             aria-label="colorPicker"
             role="img"
-            onClick={() => setShowFontDropdown(!showFontDropdown)}
+            onClick={() => {
+              if (showColorPicker) setShowColorPicker(false);
+              setShowFontDropdown(!showFontDropdown);
+            }}
           >
             ✏️
           </TextSetting>
@@ -92,7 +98,6 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
         <Button
           onClick={() => {
             replaceNewline();
-            console.log(`value`, value);
             const newMessage = {
               id: nextId.current,
               color: pickedColor,
@@ -102,6 +107,9 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
               userName: "익명",
               message: value,
             };
+
+            console.log(`Dialog -> fontValue : ${fontValue}`);
+
             setMessages([...messages, newMessage]);
             nextId.current += 1;
             setValue("");

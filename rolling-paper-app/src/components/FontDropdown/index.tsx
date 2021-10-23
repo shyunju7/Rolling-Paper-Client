@@ -1,10 +1,9 @@
-import * as React from "react";
-
 const FontDropdown = ({ setFontValue }: any) => {
   return (
     <div>
-      <button onClick={() => setFontValue(1)}>HS유지체</button>
-      <button onClick={() => setFontValue(0)}>왼손잡이도예뻐체</button>
+      <button onClick={() => setFontValue("HSYuji")}>HS유지체</button>
+      <button onClick={() => setFontValue("nanum")}>왼손잡이도예뻐체</button>
+      <button onClick={() => setFontValue("Uiyeun")}>온글잎의연체</button>
     </div>
   );
 };

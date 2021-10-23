@@ -29,12 +29,13 @@ export const InputContainer = styled.div`
   flex-direction: column;
 `;
 
-export const InputMessage = styled.textarea<{ fontValue: number }>`
+export const InputMessage = styled.textarea<{ fontValue: string }>`
   border: none;
   width: 40vw;
   height: 15vh;
   border-radius: 32px;
-  font-family: ${(props) => (props.fontValue === 1 ? "HSYuji" : "nanum")};
+  font-family: ${(props) =>
+    props.fontValue !== null ? props.fontValue : "Uiyeun"};
   padding: 12px;
   margin-top: 16px;
   color: ${(props) => (props.color ? props.color : "#000000")};
@@ -55,9 +56,20 @@ export const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
   bottom: 10px;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
 `;
 
 export const Button = styled.button`
   width: 20vw;
   margin: 2px;
+  border: 1px solid #c6c6c6;
+  background-color: #ffffff;
+  border-radius: 16px;
+
+  &:hover {
+    border: 1px solid #eca4a6;
+    background-color: #ede3e5;
+  }
 `;

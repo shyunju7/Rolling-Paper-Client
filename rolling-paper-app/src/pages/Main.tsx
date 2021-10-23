@@ -35,7 +35,7 @@ interface Message {
   id: number;
   position: MessagePosition;
   disabled: boolean;
-  font: number;
+  font: string;
   color: string;
   userName: string;
   message: string;
