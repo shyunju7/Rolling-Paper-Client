@@ -29,11 +29,12 @@ export const InputContainer = styled.div`
   flex-direction: column;
 `;
 
-export const InputMessage = styled.textarea`
+export const InputMessage = styled.textarea<{ fontValue: number }>`
   border: none;
   width: 40vw;
   height: 15vh;
   border-radius: 32px;
+  font-family: ${(props) => (props.fontValue === 1 ? "HSYuji" : "nanum")};
   padding: 12px;
   margin-top: 16px;
   color: ${(props) => (props.color ? props.color : "#000000")};

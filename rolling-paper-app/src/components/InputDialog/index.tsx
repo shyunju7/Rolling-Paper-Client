@@ -11,18 +11,22 @@ import {
 } from "./style";
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
+import FontDropdown from "../FontDropdown";
 
 interface Message {
   id: number;
   color: string;
   disabled: boolean;
+  font: number;
   userName: string;
   message: string;
 }
 
 const InputDialog = ({ setVisible, messages, setMessages }: any) => {
   const { value, onChange, setValue }: any = useInput("");
+  const [fontValue, setFontValue] = useState(0);
   const [showColorPicker, setShowColorPicker] = useState(false);
+  const [showFontDropdown, setShowFontDropdown] = useState(false);
   const [pickedColor, setColor] = useState("#000000");
   const nextId = useRef(5);
 
@@ -58,10 +62,18 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           <TextSetting aria-label="colorPicker" role="img">
             🛠
           </TextSetting>
-          <TextSetting aria-label="colorPicker" role="img">
+          <TextSetting
+            aria-label="colorPicker"
+            role="img"
+            onClick={() => setShowFontDropdown(!showFontDropdown)}
+          >
             ✏️
           </TextSetting>
         </TextSettingContainer>
+
+        {showFontDropdown ? <FontDropdown setFontValue={setFontValue} /> : null}
+
+        {console.log(fontValue)}
         {showColorPicker ? (
           <TwitterPicker
             color={pickedColor}
@@ -69,7 +81,12 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
           />
         ) : null}
       </InputContainer>
-      <InputMessage color={pickedColor} value={value} onChange={onChange} />
+      <InputMessage
+        color={pickedColor}
+        value={value}
+        fontValue={fontValue}
+        onChange={onChange}
+      />
       <ButtonContainer>
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
@@ -80,6 +97,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
               id: nextId.current,
               color: pickedColor,
               position: { x: 0, y: 0 },
+              font: fontValue,
               disabled: false,
               userName: "익명",
               message: value,

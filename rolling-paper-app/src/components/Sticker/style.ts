@@ -4,6 +4,7 @@ export const StickerContainer = styled.div<{
   x: number;
   y: number;
   disabled: boolean;
+  fontValue: number;
 }>`
   width: 300px;
   background-color: transparent;
@@ -13,11 +14,12 @@ export const StickerContainer = styled.div<{
   cursor: pointer;
   font-size: 1.2rem;
   color: ${(props) => (props.color ? props.color : "#000000")};
-
+  font-family: ${(props) => (props.fontValue === 1 ? "HSYuji" : "nanum")};
   border: ${(props) => (props.disabled ? "none" : "1px dotted #c4c4c4")};
 `;
 
-export const Author = styled.h3`
+export const Author = styled.h3<{ fontValue: number }>`
   font-size: 1rem;
+  font-family: ${(props) => (props.fontValue === 1 ? "HSYuji" : "nanum")};
   color: ${(props) => (props.color ? props.color : "#000000")};
 `;
