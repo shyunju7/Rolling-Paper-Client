@@ -97,6 +97,11 @@ const InputDialog = ({ setVisible, messages, setMessages }: any) => {
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
           onClick={() => {
+            if (value.length <= 0) {
+              alert("내용을 입력해주세요!");
+              return;
+            }
+
             replaceNewline();
             const newMessage = {
               id: nextId.current,
