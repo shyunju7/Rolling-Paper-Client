@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { userApi } from "../api";
+import { useInput } from "../hooks/useInput";
 
 const Container = styled.div`
   width: 100vw;
@@ -52,14 +53,16 @@ const Button = styled.button`
 `;
 
 const Intro = () => {
+  const { value, onChange, setValue }: any = useInput("");
+
   const createUser = () => {
     try {
-      userApi.createUser();
+      userApi.createUser(value);
+      setValue("");
     } catch {
       console.log(`error...`);
     } finally {
-      console.log(`error? `);
-      console.log("success!");
+      console.log("정상적으로 등록 처리 되었습니다:)");
     }
   };
 
@@ -68,14 +71,21 @@ const Intro = () => {
       <h3 role="img" aria-label="decoIcon" style={{ margin: 0 }}>
         🐰 ❤️ 🐶
       </h3>
-      <Title>롤링 페이퍼 만들기</Title>
+      {/* <Title>롤링 페이퍼 만들기</Title> */}
 
-      <Description>
+      {/* <Description>
         For most program modifications, the process looks like the following:
         Set up a test environment in the DBMS Implement the modification in the
         test environment Use the copied live data as dummy data Activate the
         modification in test Fix bugs
-      </Description>
+      </Description> */}
+
+      <input
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder="이름을 입력하세요!"
+      />
 
       <Button onClick={createUser}>
         <SLink to="/user">START</SLink>
