@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { createSuper } from "typescript";
+import { userApi } from "../api";
 
 const Container = styled.div`
   width: 100vw;
@@ -51,6 +53,16 @@ const Button = styled.button`
 `;
 
 const Intro = () => {
+  const createUser = () => {
+    try {
+      userApi.createUser();
+    } catch {
+      console.log(`error...`);
+    } finally {
+      console.log("success!");
+    }
+  };
+
   return (
     <Container>
       <h3 role="img" aria-label="decoIcon" style={{ margin: 0 }}>
@@ -64,7 +76,8 @@ const Intro = () => {
         test environment Use the copied live data as dummy data Activate the
         modification in test Fix bugs
       </Description>
-      <Button>
+
+      <Button onClick={createUser}>
         <SLink to="/user">START</SLink>
       </Button>
     </Container>
