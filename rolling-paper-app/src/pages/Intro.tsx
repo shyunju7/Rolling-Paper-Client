@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { createSuper } from "typescript";
 import { userApi } from "../api";
 
 const Container = styled.div`
@@ -59,6 +58,7 @@ const Intro = () => {
     } catch {
       console.log(`error...`);
     } finally {
+      console.log(`error? `);
       console.log("success!");
     }
   };
