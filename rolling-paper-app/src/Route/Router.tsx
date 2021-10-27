@@ -1,11 +1,10 @@
-import * as React from "react";
 import {
   BrowserRouter as Router,
   Redirect,
   Route,
   Switch,
 } from "react-router-dom";
-import Intro from "../pages/Intro";
+import Intro from "../Route/Intro/index";
 import Main from "../pages/Main";
 const RouterComponent = () => {
   <Router>

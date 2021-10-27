@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import Intro from "../src/pages/Intro";
+import Intro from "./Route/Intro";
 import Main from "../src/pages/Main";
 function App() {
   return (
