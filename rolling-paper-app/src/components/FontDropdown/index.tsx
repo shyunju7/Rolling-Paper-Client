@@ -1,4 +1,8 @@
-const FontDropdown = ({ setFontValue }: any) => {
+interface FontValue {
+  setFontValue: Function;
+}
+
+const FontDropdown = ({ setFontValue }: FontValue) => {
   return (
     <div>
       <button onClick={() => setFontValue("HSYuji")}>HS유지체</button>

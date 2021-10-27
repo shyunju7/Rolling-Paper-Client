@@ -1,22 +1,7 @@
-import * as React from "react";
 import { useState } from "react";
 import { Author, StickerContainer } from "./style";
 import Draggable from "react-draggable";
-
-interface MessagePosition {
-  x: number;
-  y: number;
-}
-
-interface Message {
-  id: number;
-  position: MessagePosition;
-  disabled: boolean;
-  font: string;
-  color: string;
-  userName: string;
-  message: string;
-}
+import { Message } from "../../interfaces/Message.interface";
 
 const Sticker = ({
   message,

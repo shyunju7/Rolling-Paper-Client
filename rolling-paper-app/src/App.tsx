@@ -1,5 +1,4 @@
 import React from "react";
-import RouterComponent from "./Route/Router";
 import {
   BrowserRouter as Router,
   Redirect,

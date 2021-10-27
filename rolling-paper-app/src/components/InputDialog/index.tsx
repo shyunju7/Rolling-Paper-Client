@@ -12,17 +12,15 @@ import {
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
 import FontDropdown from "../FontDropdown";
+import { Message } from "../../interfaces/Message.interface";
 
-interface Message {
-  id: number;
-  color: string;
-  disabled: boolean;
-  font: string;
-  userName: string;
-  message: string;
+interface DialogType {
+  setVisible: Function;
+  messages: Message[];
+  setMessages: Function;
 }
 
-const InputDialog = ({ setVisible, messages, setMessages }: any) => {
+const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
   const { value, onChange, setValue }: any = useInput("");
   const [fontValue, setFontValue] = useState("nanum");
   const [showColorPicker, setShowColorPicker] = useState(false);
