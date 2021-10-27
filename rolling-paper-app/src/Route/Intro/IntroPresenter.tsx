@@ -1,5 +1,5 @@
 import Loader from "../../Loader";
-import { Container, Button, SLink } from "./style";
+import { Container, Button, SLink, InputName, Title } from "./style";
 
 const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
   return isLoading ? (
@@ -11,18 +11,12 @@ const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
       </h3>
       {/* <Title>롤링 페이퍼 만들기</Title> */}
 
-      {/* <Description>
-    For most program modifications, the process looks like the following:
-    Set up a test environment in the DBMS Implement the modification in the
-    test environment Use the copied live data as dummy data Activate the
-    modification in test Fix bugs
-  </Description> */}
-
-      <input
+      <Title>제목이랑 소개/설명 내용 추가하기</Title>
+      <InputName
         type="text"
         value={userName}
         onChange={onChange}
-        placeholder="이름을 입력하세요!"
+        placeholder="Your Name"
       />
 
       <Button onClick={createUser}>

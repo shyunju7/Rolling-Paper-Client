@@ -35,7 +35,7 @@ export const InputMessage = styled.textarea<{ fontValue: string }>`
   height: 15vh;
   border-radius: 32px;
   font-family: ${(props) =>
-    props.fontValue !== null ? props.fontValue : "Uiyeun"};
+    props.fontValue !== null ? props.fontValue : "OwnGlyph"};
   padding: 12px;
   margin-top: 16px;
   color: ${(props) => (props.color ? props.color : "#000000")};

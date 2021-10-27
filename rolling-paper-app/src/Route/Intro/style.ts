@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-size: 1.2rem;
   margin: 0;
 `;
 
@@ -26,6 +26,22 @@ export const Description = styled.div`
   border-radius: 32px;
 `;
 
+export const InputName = styled.input`
+  border: none;
+  width: 40vw;
+  height: 6vh;
+  border-radius: 32px;
+  background-color: #f1f2f5;
+  padding: 12px;
+  padding-left: 32px;
+  margin-top: 16px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+`;
+
 export const SLink = styled(Link)`
   color: #eca4a6;
   text-decoration: none;
@@ -38,13 +54,13 @@ export const SLink = styled(Link)`
 `;
 
 export const Button = styled.button`
-  width: 50vw;
+  width: 44vw;
   border-radius: 32px;
   background-color: rgba(232, 212, 212, 0.5);
   border: 1px solid #eca4a6;
   align-content: center;
-
-  padding: 0.5rem;
+  margin-top: 16px;
+  padding: 12px;
   &:hover {
     background-color: #e8d4d4;
   }
