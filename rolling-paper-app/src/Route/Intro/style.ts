@@ -11,7 +11,8 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: bold;
   margin: 0;
 `;
 
@@ -43,25 +44,25 @@ export const InputName = styled.input`
 `;
 
 export const SLink = styled(Link)`
-  color: #eca4a6;
+  color: #f1f2f5;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
 
   &:hover {
-    color: #df9b9d;
+    color: #f1f2f5;
   }
 `;
 
 export const Button = styled.button`
   width: 44vw;
   border-radius: 32px;
-  background-color: rgba(232, 212, 212, 0.5);
-  border: 1px solid #eca4a6;
+  background-color: #adc1c9;
+  border: 2px solid #9da7aa;
   align-content: center;
   margin-top: 16px;
   padding: 12px;
   &:hover {
-    background-color: #e8d4d4;
+    background-color: #c1d5dd;
   }
 `;
