@@ -1,7 +1,10 @@
+import Loader from "../../Loader";
 import { Container, Button, SLink } from "./style";
 
-const IntroPresenter = ({ userName, onChange, createUser }: any) => {
-  return (
+const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
+  return isLoading ? (
+    <Loader />
+  ) : (
     <Container>
       <h3 role="img" aria-label="decoIcon" style={{ margin: 0 }}>
         🐰 ❤️ 🐶

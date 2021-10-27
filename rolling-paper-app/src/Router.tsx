@@ -4,8 +4,8 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import Intro from "../Route/Intro/index";
-import Main from "../pages/Main";
+import Intro from "./Route/Intro/index";
+import Main from "./pages/Main";
 const RouterComponent = () => {
   <Router>
     <Switch>
