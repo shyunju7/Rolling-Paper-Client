@@ -18,7 +18,6 @@ const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
         onChange={onChange}
         placeholder="Your Name"
       />
-
       <Button onClick={createUser}>
         <SLink to="/user">START</SLink>
       </Button>

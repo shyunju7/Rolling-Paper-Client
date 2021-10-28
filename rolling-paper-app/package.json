@@ -2,7 +2,8 @@
   "name": "rolling-paper-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://172.30.1.27:3001",
+  "proxy": "http://172.30.1.7:3001",
+  "secure": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
