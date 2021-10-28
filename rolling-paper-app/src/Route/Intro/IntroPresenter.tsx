@@ -1,7 +1,9 @@
 import Loader from "../../Loader";
-import { Container, Button, SLink, InputName, Title } from "./style";
+import { Container, Button, InputName, Title } from "./style";
 
 const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
+  let link = "";
+
   return isLoading ? (
     <Loader />
   ) : (
@@ -18,9 +20,7 @@ const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
         onChange={onChange}
         placeholder="Your Name"
       />
-      <Button onClick={createUser}>
-        <SLink to="/user">START</SLink>
-      </Button>
+      <Button onClick={createUser}>START</Button>
     </Container>
   );
 };

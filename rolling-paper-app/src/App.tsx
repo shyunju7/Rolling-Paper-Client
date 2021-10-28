@@ -1,4 +1,3 @@
-import React from "react";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -13,7 +12,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Intro} />
-          <Route path="/user/" exact component={Main} />
+          <Route path="/paper/:linkcode" exact component={Main} />
           <Redirect from="*" to="/" />
         </Switch>
       </Router>
