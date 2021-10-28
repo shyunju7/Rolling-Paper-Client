@@ -19,7 +19,6 @@ const ResultContainer = () => {
 
     copyText.select();
     document.execCommand("copy");
-    console.log(`copy 완료!`);
   };
 
   return <ResultPresenter copyClipBoard={copyClipBoard} />;
