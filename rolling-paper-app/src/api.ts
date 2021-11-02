@@ -11,6 +11,15 @@ export const userApi = {
     }),
 };
 
+export const linkApi = {
+  getUserInfo: (linkCode: string) =>
+    api.get(`/link/user/${linkCode}`, {
+      params: {
+        linkCode: linkCode,
+      },
+    }),
+};
+
 export const messageApi = {
   getAllMessage: (linkCode: string) =>
     api.get(`message/result/${linkCode}`, {
