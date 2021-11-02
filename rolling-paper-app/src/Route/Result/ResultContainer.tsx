@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { messageApi } from "../../api";
 import ResultPresenter from "./ResultPresenter";
 
-const ResultContainer = () => {
+const ResultContainer = ({ location }: any) => {
   useEffect(() => {
     document.addEventListener("copy", copyClipBoard, true);
 
@@ -21,13 +21,16 @@ const ResultContainer = () => {
     copyText.select();
     document.execCommand("copy");
   };
+
+  console.log(`loc,`, location.pathname.substring(8));
+
   messageApi
-    .getAllMessage(91)
+    .getAllMessage(location.pathname.substring(8))
     .then((value) => {
       console.log(`value: `, value);
     })
     .catch(function () {
-      console.log(`error...`);
+      alert(`유효하지 않은 url입니다.`);
     });
 
   return <ResultPresenter copyClipBoard={copyClipBoard} />;
