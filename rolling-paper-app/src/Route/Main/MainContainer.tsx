@@ -14,9 +14,10 @@ const messageList: Message[] = [
   },
 ];
 
-const MainContainer = () => {
+const MainContainer = ({ location }: any) => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages] = useState(messageList);
+
   return (
     <MainPresenter
       isVisible={isVisible}

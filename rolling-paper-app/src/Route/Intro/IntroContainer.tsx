@@ -8,8 +8,6 @@ const IntroContainer = ({ history }: any) => {
   const [isLoading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  console.log(`history : `, history);
-
   const createUser = () => {
     setLoading(true);
     userApi
