@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact component={Intro} />
-          <Route path="/paper/:linkcode/my" exact component={Result} />
+          <Route path="/result/:linkcode" exact component={Result} />
           <Route path="/paper/:linkcode" exact component={Main} />
           <Redirect from="*" to="/" />
         </Switch>
