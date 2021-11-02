@@ -10,3 +10,12 @@ export const userApi = {
       username: userName,
     }),
 };
+
+export const messageApi = {
+  getAllMessage: (id: any) =>
+    api.get(`message/result/${id}`, {
+      params: {
+        linkid: id,
+      },
+    }),
+};
