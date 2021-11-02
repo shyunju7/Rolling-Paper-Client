@@ -12,10 +12,10 @@ export const userApi = {
 };
 
 export const messageApi = {
-  getAllMessage: (id: any) =>
-    api.get(`message/result/${id}`, {
+  getAllMessage: (linkCode: string) =>
+    api.get(`message/result/${linkCode}`, {
       params: {
-        linkid: id,
+        linkcode: linkCode,
       },
     }),
 };
