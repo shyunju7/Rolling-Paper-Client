@@ -9,6 +9,7 @@ const IntroContainer = ({ history }: any) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   console.log(`history : `, history);
+
   const createUser = () => {
     setLoading(true);
     userApi

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { messageApi } from "../../api";
 import ResultPresenter from "./ResultPresenter";
 
 const ResultContainer = () => {
@@ -20,6 +21,14 @@ const ResultContainer = () => {
     copyText.select();
     document.execCommand("copy");
   };
+  messageApi
+    .getAllMessage(91)
+    .then((value) => {
+      console.log(`value: `, value);
+    })
+    .catch(function () {
+      console.log(`error...`);
+    });
 
   return <ResultPresenter copyClipBoard={copyClipBoard} />;
 };
