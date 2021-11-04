@@ -4,35 +4,36 @@ import Draggable from "react-draggable";
 import { Message } from "../../interfaces/Message.interface";
 
 const Sticker = ({
-  message,
-  userName,
+  contents,
+  author,
   color,
-  position,
-  disabled,
+  positionX,
+  positionY,
+  draggable,
   font,
 }: Message) => {
-  const { x, y } = position;
-  const [disabledMessage, setDisabledMessage] = useState(disabled);
+  const [draggableMessage, setDraggableMessage] = useState(draggable);
+
   return (
-    <Draggable disabled={disabledMessage}>
+    <Draggable disabled={!draggableMessage}>
       <StickerContainer
-        x={x}
-        y={y}
+        x={positionX}
+        y={positionY}
         color={color}
-        disabled={disabledMessage}
+        draggable={draggableMessage}
         fontValue={font}
       >
-        {message.split("\n").map((line, index) => (
+        {contents.split("\n").map((line, index) => (
           <span key={index}>
             {line}
             <br />
           </span>
         ))}
         <Author color={color} fontValue={font}>
-          -{userName}-
+          -{author}-
         </Author>
-        {disabledMessage ? null : (
-          <button onClick={() => setDisabledMessage(!disabledMessage)}>
+        {!draggableMessage ? null : (
+          <button onClick={() => setDraggableMessage(!draggableMessage)}>
             저장하기
           </button>
         )}

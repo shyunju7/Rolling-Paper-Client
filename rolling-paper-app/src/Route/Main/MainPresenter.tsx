@@ -29,12 +29,13 @@ const MainPresenter = ({
             <Sticker
               key={index}
               id={item.id}
-              position={item.position}
-              disabled={item.disabled}
+              positionX={item.positionX}
+              positionY={item.positionY}
+              draggable={item.draggable}
               font={item.font}
               color={item.color}
-              message={item.message}
-              userName={item.userName}
+              contents={item.color}
+              author={item.author}
             />
           ))}
       </Container>

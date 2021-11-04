@@ -22,12 +22,10 @@ const ResultContainer = ({ location }: any) => {
     document.execCommand("copy");
   };
 
-  console.log(`loc,`, location.pathname.substring(8));
-
   messageApi
     .getAllMessage(location.pathname.substring(8))
     .then((value) => {
-      console.log(`value: `, value);
+      console.log(`value: `, value.data);
     })
     .catch(function () {
       alert(`유효하지 않은 url입니다.`);

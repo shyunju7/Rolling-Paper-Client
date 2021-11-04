@@ -5,10 +5,11 @@ interface MessagePosition {
 
 export interface Message {
   id: number;
-  position: MessagePosition;
-  disabled: boolean;
+  positionX: number;
+  positionY: number;
+  draggable: boolean;
   font: string;
   color: string;
-  userName: string;
-  message: string;
+  author: string;
+  contents: string;
 }
