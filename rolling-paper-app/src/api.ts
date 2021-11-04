@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Message } from "./interfaces/Message.interface";
 
 const api = axios.create({
   baseURL: "/",
@@ -21,6 +22,11 @@ export const linkApi = {
 };
 
 export const messageApi = {
+  createMessage: (linkCode: string, message: Message) =>
+    api.post(`message/${linkCode}`, {
+      message: message,
+    }),
+
   getAllMessage: (linkCode: string) =>
     api.get(`message/result/${linkCode}`, {
       params: {
