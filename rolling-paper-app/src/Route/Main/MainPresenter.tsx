@@ -34,7 +34,7 @@ const MainPresenter = ({
               draggable={item.draggable}
               font={item.font}
               color={item.color}
-              contents={item.color}
+              contents={item.contents}
               author={item.author}
             />
           ))}
