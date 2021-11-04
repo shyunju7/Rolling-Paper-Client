@@ -24,6 +24,19 @@ const MainPresenter = ({
           />
         ) : null}
 
+        <Sticker
+          id={messages.id}
+          positionX={messages.positionX}
+          positionY={messages.positionY}
+          draggable={messages.draggable}
+          font={messages.font}
+          color={messages.color}
+          contents={messages.contents}
+          author={messages.author}
+        />
+
+        {console.log(messages)}
+
         {messages &&
           messages.map((item: Message, index: number) => (
             <Sticker

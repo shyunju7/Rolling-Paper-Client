@@ -18,7 +18,7 @@ const MainContainer = ({ location }: any) => {
       .catch(function () {
         alert(`유효하지 않은 url입니다.`);
       });
-  }, []);
+  }, [setMessages]);
 
   return (
     <MainPresenter
