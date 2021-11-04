@@ -13,3 +13,13 @@ export interface Message {
   author: string;
   contents: string;
 }
+
+export interface MessageDto {
+  author: string;
+  positionX: number;
+  positionY: number;
+  draggable: boolean;
+  font: string;
+  color: string;
+  contents: string;
+}
