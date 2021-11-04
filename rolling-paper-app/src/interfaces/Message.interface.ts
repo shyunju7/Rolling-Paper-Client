@@ -23,3 +23,10 @@ export interface MessageDto {
   color: string;
   contents: string;
 }
+
+export interface UpdateMessageDto {
+  id: number;
+  positionX: number;
+  positionY: number;
+  draggable: boolean;
+}
