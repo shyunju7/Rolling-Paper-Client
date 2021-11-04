@@ -12,7 +12,8 @@ import {
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
 import FontDropdown from "../FontDropdown";
-import { Message } from "../../interfaces/Message.interface";
+import { Message, MessageDto } from "../../interfaces/Message.interface";
+import { messageApi } from "../../api";
 
 interface DialogType {
   setVisible: Function;
@@ -35,6 +36,17 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
   const replaceNewline = () => {
     return setValue(value.replaceAll("<br>", "\r\n"));
   };
+
+  const saveMessage = (newMessage: MessageDto) => {
+    console.log(`save data? `, newMessage);
+    messageApi
+      .createMessage(91, newMessage)
+      .then((value) => console.log(`value`))
+      .catch(function () {
+        alert(`등록실패`);
+      });
+  };
+
   return (
     <Container>
       <Title>
@@ -101,20 +113,21 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
             }
 
             replaceNewline();
-            const newMessage = {
-              id: nextId.current,
+            const newMessage: MessageDto = {
+              author: "익명",
               color: pickedColor,
-              position: { x: 0, y: 0 },
+              positionX: 500,
+              positionY: 500,
               font: fontValue,
-              disabled: false,
-              userName: "익명",
-              message: value,
+              draggable: false,
+              contents: value,
             };
 
-            console.log(`Dialog -> fontValue : ${fontValue}`);
+            console.log(`newMessage : `, newMessage);
+            saveMessage(newMessage);
 
-            setMessages([...messages, newMessage]);
-            nextId.current += 1;
+            //setMessages([...messages, newMessage]);
+            //nextId.current += 1;
             setValue("");
             setColor("#000000");
             setVisible(false);
