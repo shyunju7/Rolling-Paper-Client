@@ -28,6 +28,11 @@ const InputDialog = ({
   saveMessage,
 }: DialogType) => {
   const { value, onChange, setValue }: any = useInput("");
+  const {
+    value: author,
+    setValue: setAuthor,
+    onChange: onChangeAuthor,
+  } = useInput("");
   const [fontValue, setFontValue] = useState("nanum");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showFontDropdown, setShowFontDropdown] = useState(false);
@@ -91,6 +96,14 @@ const InputDialog = ({
           />
         ) : null}
       </InputContainer>
+
+      <div>
+        <label>작성자</label>
+        <input type="text" value={author} onChange={onChangeAuthor} />
+        <input type="checkbox" value="익명" />
+        <label>익명</label>
+      </div>
+
       <InputMessage
         color={pickedColor}
         value={value}
@@ -101,6 +114,7 @@ const InputDialog = ({
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
           onClick={(e: any) => {
+            console.log(e);
             if (value.length <= 0) {
               alert("내용을 입력해주세요!");
               return;
@@ -108,7 +122,7 @@ const InputDialog = ({
 
             replaceNewline();
             const newMessage: MessageDto = {
-              author: "익명",
+              author: author,
               color: pickedColor,
               positionX: 0,
               positionY: 0,
@@ -119,6 +133,7 @@ const InputDialog = ({
 
             saveMessage(newMessage);
             setValue("");
+            setAuthor("");
             setColor("#000000");
             setVisible(false);
           }}

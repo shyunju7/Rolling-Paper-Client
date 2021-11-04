@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Author, StickerContainer } from "./style";
 import Draggable from "react-draggable";
-import { Message } from "../../interfaces/Message.interface";
 
 const Sticker = ({
   id,
@@ -14,34 +13,45 @@ const Sticker = ({
   font,
   updateMessage,
 }: any) => {
-  const [draggableMessage, setDraggableMessage] = useState(!draggable);
-
+  const [draggableMessage, setDraggableMessage] = useState(draggable);
+  const [position, setPosition] = useState({
+    positionX: 0,
+    positionY: 0,
+  });
+  const trackPosition = (data: any) => {
+    setPosition({
+      positionX: data.x,
+      positionY: data.y,
+    });
+  };
   return (
-    <Draggable disabled={draggableMessage}>
+    <Draggable
+      disabled={!draggableMessage}
+      onStop={(data) => trackPosition(data)}
+    >
       <StickerContainer
         x={positionX}
         y={positionY}
         color={color}
-        draggable={draggable}
+        draggable={draggableMessage}
         fontValue={font}
       >
-        {contents}
-        {/* {contents.split("\n").map((line, index) => (
+        {contents.split("\n").map((line: string, index: number) => (
           <span key={index}>
             {line}
             <br />
           </span>
-        ))} */}
+        ))}
         <Author color={color} fontValue={font}>
           -{author}-
         </Author>
-        {draggableMessage ? null : (
+        {!draggableMessage ? null : (
           <button
-            onClick={(e) => {
+            onClick={() => {
               updateMessage({
                 id: id,
-                positionX: e.clientX,
-                positionY: e.clientY,
+                positionX: position.positionX,
+                positionY: position.positionY,
                 draggable: false,
               });
               setDraggableMessage(!draggableMessage);
