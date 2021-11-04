@@ -9,6 +9,7 @@ const MainPresenter = ({
   setVisible,
   setMessages,
   messages,
+  saveMessage,
 }: any) => {
   return (
     <div>
@@ -21,19 +22,9 @@ const MainPresenter = ({
             setVisible={setVisible}
             messages={messages}
             setMessages={setMessages}
+            saveMessage={saveMessage}
           />
         ) : null}
-
-        <Sticker
-          id={messages.id}
-          positionX={messages.positionX}
-          positionY={messages.positionY}
-          draggable={messages.draggable}
-          font={messages.font}
-          color={messages.color}
-          contents={messages.contents}
-          author={messages.author}
-        />
 
         {console.log(messages)}
 

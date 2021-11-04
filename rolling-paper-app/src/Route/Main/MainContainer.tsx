@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MainPresenter from "./MainPresenter";
-import { Message } from "../../interfaces/Message.interface";
+import { Message, MessageDto } from "../../interfaces/Message.interface";
 import { messageApi } from "../../api";
 
 const messageList: Message[] = [];
@@ -8,6 +8,16 @@ const messageList: Message[] = [];
 const MainContainer = ({ location }: any) => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages]: any = useState(messageList);
+
+  const saveMessage = (newMessage: MessageDto) => {
+    console.log(`newMessage ?`, newMessage);
+    messageApi
+      .createMessage(location.pathname.substring(7), newMessage)
+      .then((value) => console.log(`value`))
+      .catch(function () {
+        alert(`등록실패`);
+      });
+  };
 
   useEffect(() => {
     messageApi
@@ -18,7 +28,7 @@ const MainContainer = ({ location }: any) => {
       .catch(function () {
         alert(`유효하지 않은 url입니다.`);
       });
-  }, [setMessages]);
+  }, [isVisible]);
 
   return (
     <MainPresenter
@@ -26,6 +36,7 @@ const MainContainer = ({ location }: any) => {
       setVisible={setVisible}
       messages={messages}
       setMessages={setMessages}
+      saveMessage={saveMessage}
     />
   );
 };

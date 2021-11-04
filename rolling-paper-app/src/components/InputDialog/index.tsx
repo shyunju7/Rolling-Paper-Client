@@ -19,9 +19,15 @@ interface DialogType {
   setVisible: Function;
   messages: Message[];
   setMessages: Function;
+  saveMessage: Function;
 }
 
-const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
+const InputDialog = ({
+  setVisible,
+  messages,
+  setMessages,
+  saveMessage,
+}: DialogType) => {
   const { value, onChange, setValue }: any = useInput("");
   const [fontValue, setFontValue] = useState("nanum");
   const [showColorPicker, setShowColorPicker] = useState(false);
@@ -34,16 +40,6 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
 
   const replaceNewline = () => {
     return setValue(value.replaceAll("<br>", "\r\n"));
-  };
-
-  const saveMessage = (newMessage: MessageDto) => {
-    console.log(`newMessage ?`, newMessage);
-    messageApi
-      .createMessage(91, newMessage)
-      .then((value) => console.log(`value`))
-      .catch(function () {
-        alert(`등록실패`);
-      });
   };
 
   return (
@@ -115,8 +111,8 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
             const newMessage: MessageDto = {
               author: "익명",
               color: pickedColor,
-              positionX: e.clientX,
-              positionY: e.clientY,
+              positionX: 0,
+              positionY: 0,
               font: fontValue,
               draggable: true,
               contents: value,
