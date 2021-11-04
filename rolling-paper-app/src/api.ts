@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Message } from "./interfaces/Message.interface";
+import { Message, MessageDto } from "./interfaces/Message.interface";
 
 const api = axios.create({
   baseURL: "/",
@@ -22,9 +22,9 @@ export const linkApi = {
 };
 
 export const messageApi = {
-  createMessage: (linkCode: string, message: Message) =>
-    api.post(`message/${linkCode}`, {
-      message: message,
+  createMessage: (id: any, message: MessageDto) =>
+    api.post(`message/${id}`, message, {
+      headers: { "Content-Type": `application/json` },
     }),
 
   getAllMessage: (linkCode: string) =>
