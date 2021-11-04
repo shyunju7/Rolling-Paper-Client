@@ -13,7 +13,6 @@ import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
 import FontDropdown from "../FontDropdown";
 import { Message, MessageDto } from "../../interfaces/Message.interface";
-import { messageApi } from "../../api";
 
 interface DialogType {
   setVisible: Function;

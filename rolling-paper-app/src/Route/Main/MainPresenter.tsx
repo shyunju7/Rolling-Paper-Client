@@ -5,6 +5,7 @@ import InputDialog from "../../components/InputDialog";
 import { Message } from "../../interfaces/Message.interface";
 
 const MainPresenter = ({
+  userName,
   isVisible,
   setVisible,
   setMessages,
@@ -13,9 +14,9 @@ const MainPresenter = ({
 }: any) => {
   return (
     <div>
-      <Header userName="아무개" />
+      <Header userName={userName} />
       <Container>
-        <UserName onClick={() => setVisible(!isVisible)}>개똥벌레</UserName>
+        <UserName onClick={() => setVisible(!isVisible)}>{userName}</UserName>
 
         {isVisible ? (
           <InputDialog
@@ -25,8 +26,6 @@ const MainPresenter = ({
             saveMessage={saveMessage}
           />
         ) : null}
-
-        {console.log(messages)}
 
         {messages &&
           messages.map((item: Message, index: number) => (
