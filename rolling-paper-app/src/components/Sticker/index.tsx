@@ -4,6 +4,7 @@ import Draggable from "react-draggable";
 import { Message } from "../../interfaces/Message.interface";
 
 const Sticker = ({
+  id,
   contents,
   author,
   color,
@@ -11,7 +12,8 @@ const Sticker = ({
   positionY,
   draggable,
   font,
-}: Message) => {
+  updateMessage,
+}: any) => {
   const [draggableMessage, setDraggableMessage] = useState(!draggable);
 
   return (
@@ -34,7 +36,17 @@ const Sticker = ({
           -{author}-
         </Author>
         {draggableMessage ? null : (
-          <button onClick={() => setDraggableMessage(!draggableMessage)}>
+          <button
+            onClick={(e) => {
+              updateMessage({
+                id: id,
+                positionX: e.clientX,
+                positionY: e.clientY,
+                draggable: false,
+              });
+              setDraggableMessage(!draggableMessage);
+            }}
+          >
             저장하기
           </button>
         )}

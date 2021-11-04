@@ -7,6 +7,7 @@ import { Message } from "../../interfaces/Message.interface";
 const MainPresenter = ({
   userName,
   isVisible,
+  updateMessage,
   setVisible,
   setMessages,
   messages,
@@ -35,6 +36,7 @@ const MainPresenter = ({
               positionX={item.positionX}
               positionY={item.positionY}
               draggable={item.draggable}
+              updateMessage={updateMessage}
               font={item.font}
               color={item.color}
               contents={item.contents}

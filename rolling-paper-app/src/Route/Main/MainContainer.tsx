@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import MainPresenter from "./MainPresenter";
-import { Message, MessageDto } from "../../interfaces/Message.interface";
+import {
+  Message,
+  MessageDto,
+  UpdateMessageDto,
+} from "../../interfaces/Message.interface";
 import { linkApi, messageApi } from "../../api";
 
 const messageList: Message[] = [];
@@ -10,8 +14,16 @@ const MainContainer = ({ location }: any) => {
   const [messages, setMessages]: any = useState(messageList);
   const [userName, setUserName] = useState("");
 
+  const updateMessage = (updateMessage: UpdateMessageDto) => {
+    messageApi
+      .updateMessage(location.pathname.substring(7), updateMessage)
+      .then((value) => console.log(`value`))
+      .catch(function () {
+        alert(`업데이트 실패`);
+      });
+  };
+
   const saveMessage = (newMessage: MessageDto) => {
-    console.log(`newMessage ?`, newMessage);
     messageApi
       .createMessage(location.pathname.substring(7), newMessage)
       .then((value) => console.log(`value`))
@@ -45,6 +57,7 @@ const MainContainer = ({ location }: any) => {
       isVisible={isVisible}
       userName={userName}
       setVisible={setVisible}
+      updateMessage={updateMessage}
       messages={messages}
       setMessages={setMessages}
       saveMessage={saveMessage}
