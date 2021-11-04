@@ -22,8 +22,8 @@ export const linkApi = {
 };
 
 export const messageApi = {
-  createMessage: (id: any, message: MessageDto) =>
-    api.post(`message/${id}`, message, {
+  createMessage: (linkCode: any, message: MessageDto) =>
+    api.post(`message/${linkCode}`, message, {
       headers: { "Content-Type": `application/json` },
     }),
 
