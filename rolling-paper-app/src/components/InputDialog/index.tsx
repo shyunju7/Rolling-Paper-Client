@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import {
   ButtonContainer,
   TextSettingContainer,
@@ -27,7 +27,6 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showFontDropdown, setShowFontDropdown] = useState(false);
   const [pickedColor, setColor] = useState("#000000");
-  const nextId = useRef(5);
 
   const handleSetColor = (color: any) => {
     setColor(color.hex);
@@ -38,7 +37,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
   };
 
   const saveMessage = (newMessage: MessageDto) => {
-    console.log(`save data? `, newMessage);
+    console.log(`newMessage ?`, newMessage);
     messageApi
       .createMessage(91, newMessage)
       .then((value) => console.log(`value`))
@@ -106,7 +105,7 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
       <ButtonContainer>
         <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
-          onClick={() => {
+          onClick={(e: any) => {
             if (value.length <= 0) {
               alert("내용을 입력해주세요!");
               return;
@@ -116,18 +115,14 @@ const InputDialog = ({ setVisible, messages, setMessages }: DialogType) => {
             const newMessage: MessageDto = {
               author: "익명",
               color: pickedColor,
-              positionX: 500,
-              positionY: 500,
+              positionX: e.clientX,
+              positionY: e.clientY,
               font: fontValue,
-              draggable: false,
+              draggable: true,
               contents: value,
             };
 
-            console.log(`newMessage : `, newMessage);
             saveMessage(newMessage);
-
-            //setMessages([...messages, newMessage]);
-            //nextId.current += 1;
             setValue("");
             setColor("#000000");
             setVisible(false);
