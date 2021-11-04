@@ -15,24 +15,25 @@ const Sticker = ({
   const [draggableMessage, setDraggableMessage] = useState(draggable);
 
   return (
-    <Draggable disabled={!draggableMessage}>
+    <Draggable disabled={!draggable}>
       <StickerContainer
         x={positionX}
         y={positionY}
         color={color}
-        draggable={draggableMessage}
+        draggable={draggable}
         fontValue={font}
       >
-        {contents.split("\n").map((line, index) => (
+        {contents}
+        {/* {contents.split("\n").map((line, index) => (
           <span key={index}>
             {line}
             <br />
           </span>
-        ))}
+        ))} */}
         <Author color={color} fontValue={font}>
           -{author}-
         </Author>
-        {!draggableMessage ? null : (
+        {!draggable ? null : (
           <button onClick={() => setDraggableMessage(!draggableMessage)}>
             저장하기
           </button>
