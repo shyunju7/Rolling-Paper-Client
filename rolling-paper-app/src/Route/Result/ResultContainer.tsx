@@ -23,7 +23,6 @@ const ResultContainer = ({ location }: any) => {
   }, []);
 
   const copyClipBoard = () => {
-    console.log("copyClipboard()...");
     if (!document.queryCommandSupported("copy")) {
       return alert(`복사하기 기능이 지원되지 않는 브라우저 입니다 :)`);
     }
