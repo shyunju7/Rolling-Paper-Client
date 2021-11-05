@@ -2,8 +2,6 @@ import Loader from "../../Loader";
 import { Container, Button, InputName, Title } from "./style";
 
 const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
-  let link = "";
-
   return isLoading ? (
     <Loader />
   ) : (

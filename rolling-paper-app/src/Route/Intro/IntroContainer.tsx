@@ -9,6 +9,11 @@ const IntroContainer = ({ history }: any) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   const createUser = () => {
+    if (value.length === 0) {
+      alert("이름을 입력해주세요!");
+      return;
+    }
+
     setLoading(true);
     userApi
       .createUser(value)
