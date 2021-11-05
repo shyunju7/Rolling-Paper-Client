@@ -19,6 +19,7 @@ const Sticker = ({
     positionY: 0,
   });
   const trackPosition = (data: any) => {
+    console.log(`data, `, data.x, data.y);
     setPosition({
       positionX: data.x,
       positionY: data.y,
@@ -27,7 +28,7 @@ const Sticker = ({
   return (
     <Draggable
       disabled={!draggableMessage}
-      onStop={(data) => trackPosition(data)}
+      onDrag={(data) => trackPosition(data)}
     >
       <StickerContainer
         x={positionX}
