@@ -52,6 +52,7 @@ export const Button = styled.button`
   padding: 12px;
   color: #eca4a6;
   text-decoration: none;
+  cursor: pointer;
   font-size: 1.5rem;
   font-weight: bold;
   &:hover {
