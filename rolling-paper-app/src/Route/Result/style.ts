@@ -7,15 +7,29 @@ export const Container = styled.div`
   background-color: #f1f2f5;
 `;
 
-export const UserName = styled.h1`
+export const LinkContainer = styled.div`
+  position: relative;
+  display: flex;
+  width: 80vw;
+`;
+
+export const LinkWrapper = styled.input`
+  width: 100%;
+  border: none;
+  outline: none;
+  color: #605757;
+  border-radius: 32px;
+  padding: 8px 16px;
+`;
+
+export const CopyButton = styled.div`
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 3rem;
+  right: 16px;
+  top: 4px;
+  font-weight: bold;
+  color: #c4c4c4;
   cursor: pointer;
-  background-color: lavender;
-  padding: 1rem;
-  border-radius: 50%;
-  z-index: 10;
+  &:hover {
+    color: #605757;
+  }
 `;
