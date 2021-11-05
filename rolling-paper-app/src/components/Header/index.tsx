@@ -1,17 +1,18 @@
 import { Container, Title } from "./style";
 
-interface User {
+interface HeaderProps {
   userName: string;
+  text: string;
 }
 
-const Header = ({ userName }: User) => {
+const Header = ({ userName, text }: HeaderProps) => {
   return (
     <Container>
       <Title>
         <span role="img" aria-label="message">
           🎀{" "}
         </span>
-        {userName} 님을 위한 소중한 메세지를 작성해보세요!
+        {userName + text}
         <span role="img" aria-label="message">
           {" "}
           🎀
