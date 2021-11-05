@@ -10,9 +10,9 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 1.4rem;
-  font-weight: bold;
-  margin: 0;
+  font-weight: 800;
+  margin-bottom: 120px;
+  color: #eca4a6;
 `;
 
 export const Description = styled.div`
@@ -44,18 +44,17 @@ export const InputName = styled.input`
 
 export const Button = styled.button`
   width: 44vw;
-  border-radius: 32px;
-  background-color: #adc1c9;
-  border: 2px solid #9da7aa;
+  background-color: transparent;
+  border: none;
+  outline: none;
   align-content: center;
   margin-top: 16px;
   padding: 12px;
-  color: #f1f2f5;
+  color: #eca4a6;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: bold;
   &:hover {
-    color: #f1f2f5;
-    background-color: #c1d5dd;
+    color: #f9cfd0;
   }
 `;

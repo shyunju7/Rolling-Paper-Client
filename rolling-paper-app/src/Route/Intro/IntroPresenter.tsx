@@ -9,9 +9,12 @@ const IntroPresenter = ({ userName, onChange, createUser, isLoading }: any) => {
   ) : (
     <Container>
       <Title>
-        ROLLING PAPER
         <span role="img" aria-label="pen">
-          ✏️
+          🐰
+        </span>{" "}
+        MAKING ROLLING PAPER{" "}
+        <span role="img" aria-label="pen">
+          🐰
         </span>
       </Title>
       <InputName
