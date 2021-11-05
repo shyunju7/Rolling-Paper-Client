@@ -1,14 +1,25 @@
+import { useState } from "react";
 import { useEffect } from "react";
-import { messageApi } from "../../api";
+import { linkApi, messageApi } from "../../api";
 import ResultPresenter from "./ResultPresenter";
 
 const ResultContainer = ({ location }: any) => {
+  const [userName, setUserName] = useState("");
   useEffect(() => {
     document.addEventListener("copy", copyClipBoard, true);
 
     return () => {
       document.removeEventListener("copy", copyClipBoard, true);
     };
+  }, []);
+
+  useEffect(() => {
+    linkApi
+      .getUserInfo(location.pathname.substring(7))
+      .then((value) => setUserName(value.data.data[0].username))
+      .catch(function () {
+        alert(`사용자의 정보를 찾을 수 없습니다.`);
+      });
   }, []);
 
   const copyClipBoard = () => {
@@ -31,6 +42,6 @@ const ResultContainer = ({ location }: any) => {
       alert(`유효하지 않은 url입니다.`);
     });
 
-  return <ResultPresenter copyClipBoard={copyClipBoard} />;
+  return <ResultPresenter copyClipBoard={copyClipBoard} userName={userName} />;
 };
 export default ResultContainer;

@@ -1,9 +1,9 @@
 import { Container } from "./style";
 import Header from "../../components/Header";
-const ResultPresenter = ({ copyClipBoard }: any) => {
+const ResultPresenter = ({ copyClipBoard, userName }: any) => {
   return (
     <div>
-      <Header userName="아무개" />
+      <Header userName={userName} text="의 롤링페이퍼" />
 
       <Container>
         <input
