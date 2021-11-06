@@ -1,6 +1,20 @@
 import { useState } from "react";
 import { Author, StickerContainer } from "./style";
 import Draggable from "react-draggable";
+import { Message } from "../../interfaces/Message.interface";
+import { idText } from "typescript";
+
+interface StickerProps {
+  id: number;
+  positionX: number;
+  positionY: number;
+  draggable: boolean;
+  font: string;
+  color: string;
+  author: string;
+  contents: string;
+  updateMessage: Function;
+}
 
 const Sticker = ({
   id,
@@ -12,14 +26,14 @@ const Sticker = ({
   draggable,
   font,
   updateMessage,
-}: any) => {
+}: StickerProps) => {
   const [draggableMessage, setDraggableMessage] = useState(draggable);
   const [position, setPosition] = useState({
     positionX: 0,
     positionY: 0,
   });
   const trackPosition = (data: any) => {
-    console.log(`data, `, data.x, data.y);
+    console.log(`data, `, data);
     setPosition({
       positionX: data.x,
       positionY: data.y,

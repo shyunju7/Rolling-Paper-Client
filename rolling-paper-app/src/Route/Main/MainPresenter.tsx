@@ -15,7 +15,7 @@ const MainPresenter = ({
 }: any) => {
   return (
     <div>
-      <Header userName={userName} text="을 위한 메세지를 작성해보세요!" />
+      <Header userName={userName} text="님을 위한 메세지를 작성해보세요!" />
       <Container>
         <UserName onClick={() => setVisible(!isVisible)}>{userName}</UserName>
 

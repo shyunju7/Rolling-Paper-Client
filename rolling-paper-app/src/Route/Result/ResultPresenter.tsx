@@ -3,7 +3,7 @@ import Header from "../../components/Header";
 const ResultPresenter = ({ copyClipBoard, userName }: any) => {
   return (
     <div>
-      <Header userName={userName} text="의 롤링페이퍼" />
+      <Header userName={userName} text="님의 롤링페이퍼" />
 
       <Container>
         <h3>아래 링크를 친구들에게 공유해보세요!</h3>
