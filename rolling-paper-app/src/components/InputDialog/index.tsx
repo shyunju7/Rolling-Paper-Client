@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import {
   ButtonContainer,
   TextSettingContainer,
@@ -14,7 +14,6 @@ import {
 } from "./style";
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
-import FontDropdown from "../FontDropdown";
 import { Message, MessageDto } from "../../interfaces/Message.interface";
 
 interface DialogType {
@@ -49,6 +48,13 @@ const InputDialog = ({
     return setValue(value.replaceAll("<br>", "\r\n"));
   };
 
+  const changeFontSize = useCallback(
+    (e) => {
+      const value = e.target.value;
+      setFontValue(value);
+    },
+    [fontValue]
+  );
   return (
     <Container>
       <Title>
@@ -82,11 +88,12 @@ const InputDialog = ({
               setShowFontDropdown(!showFontDropdown);
             }}
           >
-            ✏️
+            <select onChange={changeFontSize} value={fontValue}>
+              <option value="nanum">왼손잡이도예뻐체</option>
+              <option value="HSYuji">HS유지체</option>
+            </select>
           </TextSetting>
         </TextSettingContainer>
-
-        {showFontDropdown ? <FontDropdown setFontValue={setFontValue} /> : null}
 
         {showColorPicker ? (
           <TwitterPicker
