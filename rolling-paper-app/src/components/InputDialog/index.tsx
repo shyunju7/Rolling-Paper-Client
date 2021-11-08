@@ -8,6 +8,9 @@ import {
   InputMessage,
   Button,
   Title,
+  AuthorContainer,
+  AuthorInput,
+  AuthorNotice,
 } from "./style";
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
@@ -52,7 +55,7 @@ const InputDialog = ({
         <span role="img" aria-label="message">
           ⭐️{" "}
         </span>
-        친구에게 남길 소중한 메세지를 입력해주세요!
+        메세지 작성하기
         <span role="img" aria-label="message">
           {" "}
           ⭐️
@@ -71,11 +74,8 @@ const InputDialog = ({
           >
             🎨
           </TextSetting>
-          <TextSetting aria-label="colorPicker" role="img">
-            🛠
-          </TextSetting>
           <TextSetting
-            aria-label="colorPicker"
+            aria-label="fontPicker"
             role="img"
             onClick={() => {
               if (showColorPicker) setShowColorPicker(false);
@@ -88,7 +88,6 @@ const InputDialog = ({
 
         {showFontDropdown ? <FontDropdown setFontValue={setFontValue} /> : null}
 
-        {console.log(fontValue)}
         {showColorPicker ? (
           <TwitterPicker
             color={pickedColor}
@@ -96,23 +95,37 @@ const InputDialog = ({
           />
         ) : null}
       </InputContainer>
-
-      <div>
-        <label>작성자</label>
-        <input type="text" value={author} onChange={onChangeAuthor} />
-        <input type="checkbox" value="익명" />
-        <label>익명</label>
-      </div>
-
       <InputMessage
         color={pickedColor}
         value={value}
         fontValue={fontValue}
         onChange={onChange}
+        placeholder="내용을 입력해주세요!(100자 이내)"
       />
+      <AuthorContainer>
+        <AuthorInput
+          type="text"
+          value={author}
+          onChange={onChangeAuthor}
+          placeholder="작성자"
+        />
+        <AuthorNotice>
+          작성자를 입력하지 않을 경우, 익명으로 이름이 추가됩니다:)
+        </AuthorNotice>
+      </AuthorContainer>
+
       <ButtonContainer>
-        <Button onClick={() => setVisible(false)}> 닫기</Button>
         <Button
+          bgColor="#d4d4d4"
+          color="#ffffff"
+          onClick={() => setVisible(false)}
+        >
+          {" "}
+          닫기
+        </Button>
+        <Button
+          bgColor="#eca4a9"
+          color="#ffffff"
           onClick={(e: any) => {
             console.log(e);
             if (value.length <= 0) {
@@ -138,7 +151,7 @@ const InputDialog = ({
             setVisible(false);
           }}
         >
-          저장하기
+          작성하기
         </Button>
       </ButtonContainer>
     </Container>
