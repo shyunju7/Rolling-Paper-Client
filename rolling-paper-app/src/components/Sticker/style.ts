@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StickerContainer = styled.div<{
   x: number;
   y: number;
-  draggable: boolean;
   fontValue: string;
 }>`
   width: 300px;
@@ -14,9 +13,9 @@ export const StickerContainer = styled.div<{
   cursor: pointer;
   font-size: 1.2rem;
   color: ${(props) => (props.color ? props.color : "#000000")};
+
   font-family: ${(props) =>
     props.fontValue !== null ? props.fontValue : "nanum"};
-  border: ${(props) => (props.draggable ? "1px dotted #c4c4c4" : "none")};
 `;
 
 export const Author = styled.h3<{ fontValue: string }>`
