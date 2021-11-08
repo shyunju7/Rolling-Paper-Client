@@ -19,7 +19,7 @@ const IntroContainer = ({ history }: any) => {
       .createUser(value)
       .then((value) => {
         setLoading(false);
-        history.push(`/result/${value.data.data.link.linkcode}`);
+        history.push(`/share/${value.data.data.link.linkcode}`);
       })
       .catch(function () {
         setErrorMsg(`error: createUser()...}`);
