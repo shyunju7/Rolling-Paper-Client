@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Author, StickerContainer } from "./style";
 import Draggable from "react-draggable";
-import { Message } from "../../interfaces/Message.interface";
-import { idText } from "typescript";
 
 interface StickerProps {
   id: number;
@@ -32,23 +30,24 @@ const Sticker = ({
     positionX: 0,
     positionY: 0,
   });
+
   const trackPosition = (data: any) => {
     console.log(`data, `, data);
     setPosition({
-      positionX: data.x,
-      positionY: data.y,
+      positionX: data.layerX,
+      positionY: data.layerY,
     });
   };
   return (
     <Draggable
       disabled={!draggableMessage}
       onDrag={(data) => trackPosition(data)}
+      position={{ x: position.positionX, y: position.positionY }}
     >
       <StickerContainer
         x={positionX}
         y={positionY}
         color={color}
-        draggable={draggableMessage}
         fontValue={font}
       >
         {contents.split("\n").map((line: string, index: number) => (
