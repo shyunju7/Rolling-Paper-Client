@@ -23,13 +23,11 @@ export const Title = styled.h3`
 
 export const InputContainer = styled.div`
   margin-top: 12px;
-  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
   top: 60px;
-  left: 30px;
 `;
 
 export const InputMessage = styled.textarea<{ fontValue: string }>`
@@ -51,9 +49,12 @@ export const InputMessage = styled.textarea<{ fontValue: string }>`
 
 export const TextSettingContainer = styled.div`
   width: 100%;
+  height: 22px;
   display: flex;
   flex-direction: row;
   background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const TextSetting = styled.span`
@@ -101,8 +102,26 @@ export const Button = styled.button<{ bgColor: string; color: string }>`
   color: ${(props) => (props.color ? props.color : "#d4d4d4")};
   border-radius: 4px;
   font-weight: bold;
-
+  cursor: pointer;
   &:hover {
-    border:  ${(props) =>
+    border: ${(props) =>
       props.bgColor ? "1px solid" + props.bgColor : "none"};
+  }
+`;
+
+export const SelectFont = styled.select`
+  border: 2px solid #e4e4e4;
+  height: 24px;
+  font-size: 16px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+`;
+
+export const PickedColor = styled.div<{ color: string }>`
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid #dddddd;
+  background-color: ${(props) => (props.color ? props.color : "#000000")};
 `;

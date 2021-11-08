@@ -11,10 +11,13 @@ import {
   AuthorContainer,
   AuthorInput,
   AuthorNotice,
+  PickedColor,
+  SelectFont,
 } from "./style";
 import { useInput } from "../../hooks/useInput";
 import { TwitterPicker } from "react-color";
 import { Message, MessageDto } from "../../interfaces/Message.interface";
+import { useEffect } from "react";
 
 interface DialogType {
   setVisible: Function;
@@ -55,6 +58,11 @@ const InputDialog = ({
     },
     [fontValue]
   );
+
+  useEffect(() => {
+    setShowColorPicker(false);
+  }, [pickedColor]);
+
   return (
     <Container>
       <Title>
@@ -78,7 +86,7 @@ const InputDialog = ({
               setShowColorPicker(!showColorPicker);
             }}
           >
-            🎨
+            <PickedColor color={pickedColor} />
           </TextSetting>
           <TextSetting
             aria-label="fontPicker"
@@ -88,17 +96,28 @@ const InputDialog = ({
               setShowFontDropdown(!showFontDropdown);
             }}
           >
-            <select onChange={changeFontSize} value={fontValue}>
+            <SelectFont onChange={changeFontSize} value={fontValue}>
               <option value="nanum">왼손잡이도예뻐체</option>
               <option value="HSYuji">HS유지체</option>
-            </select>
+            </SelectFont>
           </TextSetting>
         </TextSettingContainer>
 
         {showColorPicker ? (
           <TwitterPicker
+            width="140px"
             color={pickedColor}
             onChangeComplete={handleSetColor}
+            colors={[
+              "#FF6900",
+              "#FCB900",
+              "#00D084",
+              "#8ED1FC",
+              "#0693E3",
+              "#EB144C",
+              "#F78DA7",
+              "#9900EF",
+            ]}
           />
         ) : null}
       </InputContainer>
@@ -114,7 +133,7 @@ const InputDialog = ({
           type="text"
           value={author}
           onChange={onChangeAuthor}
-          placeholder="작성자"
+          placeholder="작성자 이름"
         />
         <AuthorNotice>
           작성자를 입력하지 않을 경우, 익명으로 이름이 추가됩니다:)
