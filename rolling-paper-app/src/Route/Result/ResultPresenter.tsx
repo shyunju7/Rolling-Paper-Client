@@ -1,6 +1,8 @@
 import { Container, CopyButton, LinkContainer, LinkWrapper } from "./style";
 import Header from "../../components/Header";
-const ResultPresenter = ({ copyClipBoard, userName }: any) => {
+const ResultPresenter = ({ copyClipBoard, userName, userLink }: any) => {
+  const link = "http://localhost:3000/paper/" + userLink;
+
   return (
     <div>
       <Header userName={userName} text="님의 롤링페이퍼" />
@@ -11,7 +13,7 @@ const ResultPresenter = ({ copyClipBoard, userName }: any) => {
         <LinkContainer>
           <LinkWrapper
             type="text"
-            value={window.location.href}
+            value={link}
             readOnly
             className="copy-link"
             id="copy-link"

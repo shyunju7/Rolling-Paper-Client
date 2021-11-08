@@ -41,6 +41,12 @@ const ResultContainer = ({ location }: any) => {
       alert(`유효하지 않은 url입니다.`);
     });
 
-  return <ResultPresenter copyClipBoard={copyClipBoard} userName={userName} />;
+  return (
+    <ResultPresenter
+      copyClipBoard={copyClipBoard}
+      userName={userName}
+      userLink={location.pathname.substring(8)}
+    />
+  );
 };
 export default ResultContainer;
