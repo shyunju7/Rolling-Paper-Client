@@ -32,15 +32,6 @@ const ShareContainer = ({ location }: any) => {
     document.execCommand("copy");
   };
 
-  messageApi
-    .getAllMessage(location.pathname.substring(8))
-    .then((value) => {
-      console.log(`value: `, value.data);
-    })
-    .catch(function () {
-      alert(`유효하지 않은 url입니다.`);
-    });
-
   return (
     <SharePresenter
       copyClipBoard={copyClipBoard}
