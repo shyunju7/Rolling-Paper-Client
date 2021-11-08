@@ -161,7 +161,7 @@ const InputDialog = ({
 
             replaceNewline();
             const newMessage: MessageDto = {
-              author: author,
+              author: author && !author.startsWith(" ", 0) ? author : "익명",
               color: pickedColor,
               positionX: 0,
               positionY: 0,

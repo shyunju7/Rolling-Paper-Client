@@ -19,10 +19,9 @@ const MainContainer = ({ location }: any) => {
       .updateMessage(location.pathname.substring(7), updateMessage)
       .then((value) => {
         alert(`저장이 완료되었습니다:)`);
-        location.reload();
       })
       .catch(function () {
-        alert(`업데이트 실패`);
+        console.log(`not update..`);
       });
   };
 
@@ -31,7 +30,7 @@ const MainContainer = ({ location }: any) => {
       .createMessage(location.pathname.substring(7), newMessage)
       .then((value) => console.log(`value`))
       .catch(function () {
-        alert(`등록실패`);
+        alert(`not save..`);
       });
   };
 
@@ -45,7 +44,6 @@ const MainContainer = ({ location }: any) => {
   }, []);
 
   useEffect(() => {
-    console.log(`새로고침??`);
     messageApi
       .getAllMessage(location.pathname.substring(7))
       .then((messages) => {
