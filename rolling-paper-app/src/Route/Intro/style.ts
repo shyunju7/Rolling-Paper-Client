@@ -43,7 +43,6 @@ export const InputName = styled.input`
 `;
 
 export const Button = styled.button`
-  width: 44vw;
   background-color: transparent;
   border: none;
   outline: none;
