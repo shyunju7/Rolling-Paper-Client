@@ -7,12 +7,14 @@ import {
 import Intro from "./Route/Intro";
 import Main from "./Route/Main";
 import Result from "./Route/Result";
+import Share from "./Route/Share";
 function App() {
   return (
     <div>
       <Router>
         <Switch>
           <Route path="/" exact component={Intro} />
+          <Route path="/share/:linkcode" exact component={Share} />
           <Route path="/result/:linkcode" exact component={Result} />
           <Route path="/paper/:linkcode" exact component={Main} />
           <Redirect from="*" to="/" />
