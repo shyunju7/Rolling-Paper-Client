@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 50vw;
   height: 45vh;
   background-color: #ffffff;
-  border: 2px solid #c6c6c6;
+  border: 2px solid #dddddd;
   border-radius: 16px;
   box-shadow: 5px 5px 5px #aaa;
   position: absolute;
@@ -15,6 +15,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 `;
 
 export const Title = styled.h3`
@@ -27,7 +28,7 @@ export const InputContainer = styled.div`
   flex-direction: column;
   align-items: center;
   position: absolute;
-  top: 60px;
+  top: 62px;
 `;
 
 export const InputMessage = styled.textarea<{ fontValue: string }>`
@@ -82,7 +83,7 @@ export const AuthorInput = styled.input`
 
 export const AuthorNotice = styled.label`
   font-size: 12px;
-  color: #757567;
+  color: #f54949;
 `;
 
 export const ButtonContainer = styled.div`
