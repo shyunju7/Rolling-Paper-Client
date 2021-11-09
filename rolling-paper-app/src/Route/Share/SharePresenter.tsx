@@ -8,7 +8,7 @@ interface ShareProps {
   userLink: string;
 }
 
-const SharePresenter = ({ copyClipBoard, userName, userLink }: any) => {
+const SharePresenter = ({ copyClipBoard, userName, userLink }: ShareProps) => {
   const link = "http://localhost:3000/paper/" + userLink;
   const history = useHistory();
   const goResultPage = () => {
@@ -29,7 +29,7 @@ const SharePresenter = ({ copyClipBoard, userName, userLink }: any) => {
             className="copy-link"
             id="copy-link"
           />
-          <CopyButton onClick={copyClipBoard}> 복사하기</CopyButton>
+          <CopyButton onClick={() => copyClipBoard()}> 복사하기</CopyButton>
         </LinkContainer>
         <button onClick={goResultPage}>결과 확인하러 가기</button>
       </Container>
