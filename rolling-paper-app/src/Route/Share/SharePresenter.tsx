@@ -1,8 +1,19 @@
 import { Container, CopyButton, LinkContainer, LinkWrapper } from "./style";
 import Header from "../../components/Header";
+import { useHistory } from "react-router-dom";
+
+interface ShareProps {
+  copyClipBoard: Function;
+  userName: string;
+  userLink: string;
+}
+
 const SharePresenter = ({ copyClipBoard, userName, userLink }: any) => {
   const link = "http://localhost:3000/paper/" + userLink;
-
+  const history = useHistory();
+  const goResultPage = () => {
+    history.push(`/result/${userLink}`);
+  };
   return (
     <div>
       <Header userName={userName} text="님의 롤링페이퍼" />
@@ -20,7 +31,7 @@ const SharePresenter = ({ copyClipBoard, userName, userLink }: any) => {
           />
           <CopyButton onClick={copyClipBoard}> 복사하기</CopyButton>
         </LinkContainer>
-        <button>결과 확인하러 가기</button>
+        <button onClick={goResultPage}>결과 확인하러 가기</button>
       </Container>
     </div>
   );
