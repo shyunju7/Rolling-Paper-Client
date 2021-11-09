@@ -1,4 +1,4 @@
-import { Container, CopyButton, LinkContainer, LinkWrapper } from "./style";
+import { Container } from "./style";
 import Header from "../../components/Header";
 const ResultPresenter = ({ copyClipBoard, userName, userLink }: any) => {
   const link = "http://localhost:3000/paper/" + userLink;
