@@ -1,8 +1,6 @@
 import { Container } from "./style";
 import Header from "../../components/Header";
-const ResultPresenter = ({ copyClipBoard, userName, userLink }: any) => {
-  const link = "http://localhost:3000/paper/" + userLink;
-
+const ResultPresenter = ({ userName }: any) => {
   return (
     <div>
       <Header userName={userName} text="님의 롤링페이퍼" />
