@@ -1,9 +1,5 @@
 import axios from "axios";
-import {
-  Message,
-  MessageDto,
-  UpdateMessageDto,
-} from "./interfaces/Message.interface";
+import { MessageDto, UpdateMessageDto } from "./interfaces/Message.interface";
 
 const api = axios.create({
   baseURL: "/",
@@ -17,12 +13,7 @@ export const userApi = {
 };
 
 export const linkApi = {
-  getUserInfo: (linkCode: string) =>
-    api.get(`/link/user/${linkCode}`, {
-      params: {
-        linkCode: linkCode,
-      },
-    }),
+  getUserInfo: (linkCode: string) => api.get(`/link/user/${linkCode}`, {}),
 };
 
 export const messageApi = {
