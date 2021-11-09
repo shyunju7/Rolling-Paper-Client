@@ -36,7 +36,7 @@ const ShareContainer = ({ location }: any) => {
     <SharePresenter
       copyClipBoard={copyClipBoard}
       userName={userName}
-      userLink={location.pathname.substring(8)}
+      userLink={location.pathname.substring(7)}
     />
   );
 };
