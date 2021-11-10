@@ -5,12 +5,14 @@ export const Container = styled.div`
   height: 100vh;
   position: relative;
   background-color: #f1f2f5;
+  padding-top: 20px;
 `;
 
 export const LinkContainer = styled.div`
   position: relative;
   display: flex;
   width: 80vw;
+  margin-left: 40px;
 `;
 
 export const LinkWrapper = styled.input`

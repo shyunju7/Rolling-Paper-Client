@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { linkApi, messageApi } from "../../api";
+import { linkApi } from "../../api";
 import SharePresenter from "./SharePresenter";
 
 const ShareContainer = ({ location }: any) => {
