@@ -4,6 +4,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import GlobalStyles from "./GlobalStyles";
 import Intro from "./Route/Intro";
 import Main from "./Route/Main";
 import Result from "./Route/Result";
@@ -11,6 +12,7 @@ import Share from "./Route/Share";
 function App() {
   return (
     <div>
+      <GlobalStyles />
       <Router>
         <Switch>
           <Route path="/" exact component={Intro} />
