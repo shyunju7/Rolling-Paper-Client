@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 50vw;
   height: 45vh;
   background-color: #ffffff;
-  border: 2px solid #dddddd;
+  border: 2px solid #c6c6c6;
   border-radius: 16px;
   box-shadow: 5px 5px 5px #aaa;
   position: absolute;
@@ -19,7 +19,9 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h3`
+  margin-top: 16px;
   font-size: 1.2rem;
+  margin-bottom: 42px;
 `;
 
 export const InputContainer = styled.div`
