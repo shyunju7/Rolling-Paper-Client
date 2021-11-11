@@ -1,4 +1,11 @@
-import { Container, CopyButton, LinkContainer, LinkWrapper } from "./style";
+import {
+  Container,
+  CopyButton,
+  GoResultButton,
+  Guide,
+  LinkContainer,
+  LinkWrapper,
+} from "./style";
 import Header from "../../components/Header";
 import { useHistory } from "react-router-dom";
 
@@ -19,7 +26,7 @@ const SharePresenter = ({ copyClipBoard, userName, userLink }: ShareProps) => {
       <Header userName={userName} text="님의 롤링페이퍼" />
 
       <Container>
-        <h3>아래 링크를 친구들에게 공유해보세요!</h3>
+        <Guide>아래 링크를 친구들에게 공유해보세요!</Guide>
 
         <LinkContainer>
           <LinkWrapper
@@ -31,7 +38,9 @@ const SharePresenter = ({ copyClipBoard, userName, userLink }: ShareProps) => {
           />
           <CopyButton onClick={() => copyClipBoard()}> 복사하기</CopyButton>
         </LinkContainer>
-        <button onClick={goResultPage}>결과 확인하러 가기</button>
+        <GoResultButton onClick={goResultPage}>
+          결과 확인하러 가기
+        </GoResultButton>
       </Container>
     </div>
   );

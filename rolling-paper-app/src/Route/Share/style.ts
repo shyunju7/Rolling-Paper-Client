@@ -6,13 +6,20 @@ export const Container = styled.div`
   position: relative;
   background-color: #f1f2f5;
   padding-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Guide = styled.h3`
+  margin-bottom: 8px;
 `;
 
 export const LinkContainer = styled.div`
   position: relative;
   display: flex;
   width: 80vw;
-  margin-left: 40px;
 `;
 
 export const LinkWrapper = styled.input`
@@ -33,5 +40,22 @@ export const CopyButton = styled.div`
   cursor: pointer;
   &:hover {
     color: #605757;
+  }
+`;
+
+export const GoResultButton = styled.button`
+  background-color: transparent;
+  border: none;
+  outline: none;
+  align-content: center;
+  margin-top: 16px;
+  padding: 12px;
+  color: #eca4a6;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  &:hover {
+    color: #f9cfd0;
   }
 `;
