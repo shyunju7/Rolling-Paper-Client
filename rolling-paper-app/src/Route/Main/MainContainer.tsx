@@ -9,17 +9,15 @@ import { linkApi, messageApi } from "../../api";
 
 const messageList: Message[] = [];
 
-const MainContainer = ({ location }: any) => {
+const MainContainer = ({ location, userLink }: any) => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages]: any = useState(messageList);
   const [userName, setUserName] = useState("");
-  const [isUpdateMessage, setUpdateMessage] = useState(false);
-  const linkCode = location.pathname.substring(7);
+  const linkCode = userLink ? userLink : location.pathname.substring(7);
   const updateMessage = (updateMessage: UpdateMessageDto) => {
     messageApi
       .updateMessage(linkCode, updateMessage)
       .then((value) => {
-        setUpdateMessage(true);
         alert(`저장이 완료되었습니다:)`);
         window.location.replace(`/paper/${linkCode}`);
       })
