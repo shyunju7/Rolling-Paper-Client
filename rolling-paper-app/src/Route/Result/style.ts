@@ -1,10 +1,18 @@
 import styled from "styled-components";
 export const Container = styled.div`
-  margin-top: 8vh;
   width: 100vw;
   height: 100vh;
   position: relative;
   background-color: #f1f2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ResultWrapper = styled.div`
+  width: 70vw;
+  height: 60vh;
+  background-color: violet;
 `;
 
 export const LinkContainer = styled.div`
