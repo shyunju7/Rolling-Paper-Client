@@ -13,12 +13,15 @@ const MainContainer = ({ location }: any) => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages]: any = useState(messageList);
   const [userName, setUserName] = useState("");
-
+  const [isUpdateMessage, setUpdateMessage] = useState(false);
+  const linkCode = location.pathname.substring(7);
   const updateMessage = (updateMessage: UpdateMessageDto) => {
     messageApi
-      .updateMessage(location.pathname.substring(7), updateMessage)
+      .updateMessage(linkCode, updateMessage)
       .then((value) => {
+        setUpdateMessage(true);
         alert(`저장이 완료되었습니다:)`);
+        window.location.replace(`/paper/${linkCode}`);
       })
       .catch(function () {
         console.log(`not update..`);
@@ -27,7 +30,7 @@ const MainContainer = ({ location }: any) => {
 
   const saveMessage = (newMessage: MessageDto) => {
     messageApi
-      .createMessage(location.pathname.substring(7), newMessage)
+      .createMessage(linkCode, newMessage)
       .then((value) => console.log(`value`))
       .catch(function () {
         alert(`not save..`);
@@ -36,7 +39,7 @@ const MainContainer = ({ location }: any) => {
 
   useEffect(() => {
     linkApi
-      .getUserInfo(location.pathname.substring(7))
+      .getUserInfo(linkCode)
       .then((value) => setUserName(value.data.data[0].username))
       .catch(function () {
         alert(`사용자의 정보를 찾을 수 없습니다.`);
@@ -45,7 +48,7 @@ const MainContainer = ({ location }: any) => {
 
   useEffect(() => {
     messageApi
-      .getAllMessage(location.pathname.substring(7))
+      .getAllMessage(linkCode)
       .then((messages) => {
         setMessages(messages.data);
       })
