@@ -11,7 +11,7 @@ interface StickerProps {
   color: string;
   author: string;
   contents: string;
-  updateMessage: Function;
+  saveMessage: Function;
 }
 
 const Sticker = ({
@@ -23,7 +23,7 @@ const Sticker = ({
   positionY,
   draggable,
   font,
-  updateMessage,
+  saveMessage,
 }: StickerProps) => {
   const [draggableMessage, setDraggableMessage] = useState(draggable);
   const [position, setPosition] = useState({
@@ -62,8 +62,12 @@ const Sticker = ({
         {!draggableMessage ? null : (
           <button
             onClick={() => {
-              updateMessage({
+              saveMessage({
                 id: id,
+                author: author && !author.startsWith(" ", 0) ? author : "익명",
+                color: color,
+                font: font,
+                contents: contents,
                 positionX: position.positionX,
                 positionY: position.positionY,
                 draggable: false,
