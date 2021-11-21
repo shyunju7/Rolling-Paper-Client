@@ -24,12 +24,14 @@ interface DialogType {
   messages: Message[];
   setMessages: Function;
   saveMessage: Function;
+  setNewMessage: Function;
 }
 
 const InputDialog = ({
   setVisible,
   messages,
   setMessages,
+  setNewMessage,
   saveMessage,
 }: DialogType) => {
   const { value, onChange, setValue }: any = useInput("");
@@ -170,7 +172,7 @@ const InputDialog = ({
               contents: value,
             };
 
-            saveMessage(newMessage);
+            setNewMessage(newMessage);
             setValue("");
             setAuthor("");
             setColor("#000000");
