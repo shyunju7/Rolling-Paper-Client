@@ -7,11 +7,12 @@ import { Message } from "../../interfaces/Message.interface";
 const MainPresenter = ({
   userName,
   isVisible,
-  updateMessage,
   setVisible,
   setMessages,
   messages,
   saveMessage,
+  newMessage,
+  setNewMessage,
 }: any) => {
   return (
     <div>
@@ -25,6 +26,7 @@ const MainPresenter = ({
             messages={messages}
             setMessages={setMessages}
             saveMessage={saveMessage}
+            setNewMessage={setNewMessage}
           />
         ) : null}
 
@@ -36,13 +38,27 @@ const MainPresenter = ({
               positionX={item.positionX}
               positionY={item.positionY}
               draggable={item.draggable}
-              updateMessage={updateMessage}
+              saveMessage={saveMessage}
               font={item.font}
               color={item.color}
               contents={item.contents}
               author={item.author}
             />
           ))}
+
+        {newMessage && (
+          <Sticker
+            id={newMessage.id}
+            positionX={newMessage.positionX}
+            positionY={newMessage.positionY}
+            draggable={newMessage.draggable}
+            saveMessage={saveMessage}
+            font={newMessage.font}
+            color={newMessage.color}
+            contents={newMessage.contents}
+            author={newMessage.author}
+          />
+        )}
       </Container>
     </div>
   );

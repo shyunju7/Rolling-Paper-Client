@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import MainPresenter from "./MainPresenter";
-import {
-  Message,
-  MessageDto,
-  UpdateMessageDto,
-} from "../../interfaces/Message.interface";
+import { Message, MessageDto } from "../../interfaces/Message.interface";
 import { linkApi, messageApi } from "../../api";
+import { useHistory } from "react-router-dom";
 
 const messageList: Message[] = [];
 
@@ -13,23 +10,16 @@ const MainContainer = ({ location, userLink }: any) => {
   const [isVisible, setVisible] = useState(false);
   const [messages, setMessages]: any = useState(messageList);
   const [userName, setUserName] = useState("");
+  const [newMessage, setNewMessage] = useState(null);
   const linkCode = userLink ? userLink : location.pathname.substring(7);
-  const updateMessage = (updateMessage: UpdateMessageDto) => {
-    messageApi
-      .updateMessage(linkCode, updateMessage)
-      .then((value) => {
-        alert(`저장이 완료되었습니다:)`);
-        window.location.replace(`/paper/${linkCode}`);
-      })
-      .catch(function () {
-        console.log(`not update..`);
-      });
-  };
-
+  const history = useHistory();
   const saveMessage = (newMessage: MessageDto) => {
     messageApi
       .createMessage(linkCode, newMessage)
-      .then((value) => console.log(`value`))
+      .then((value) => {
+        alert("저장되었습니다:)");
+        history.push("/");
+      })
       .catch(function () {
         alert(`not save..`);
       });
@@ -60,10 +50,11 @@ const MainContainer = ({ location, userLink }: any) => {
       isVisible={isVisible}
       userName={userName}
       setVisible={setVisible}
-      updateMessage={updateMessage}
       messages={messages}
       setMessages={setMessages}
       saveMessage={saveMessage}
+      newMessage={newMessage}
+      setNewMessage={setNewMessage}
     />
   );
 };
