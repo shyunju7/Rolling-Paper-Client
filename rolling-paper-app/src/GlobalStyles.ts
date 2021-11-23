@@ -6,23 +6,28 @@ const GlobalStyles = createGlobalStyle`
 ${reset}
 
 @font-face {
-  font-family: "HSYuji";
-  src: url("../src/font/HSYuji.ttf") format("woff"),
-    url("../src/font/HSYuji.ttf") format("woff2");
+    font-family: 'IM_Hyemin-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 @font-face {
-  font-family: "nanum";
-  src: url("../src/font/나눔손글씨\ 왼손잡이도\ 예뻐.ttf") format("woff"),
-    url("../src/font/나눔손글씨\ 왼손잡이도\ 예뻐.ttf") format("woff2");
+    font-family: 'HSYuji-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/HSYuji-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
-
 @font-face {
-  font-family: "Uiyeun";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
+font-family: 'UhBeeJJIBBABBA';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeJJIBBABBA.woff') format('woff');
+font-weight: normal;
+font-style: normal;
+}
+@font-face {
+font-family: 'UhBeeQUEENJ';
+src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeQUEENJ.woff') format('woff');
+font-weight: normal;
+font-style: normal;
 }
 
 a {
