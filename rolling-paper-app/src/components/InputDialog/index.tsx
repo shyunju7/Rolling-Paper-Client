@@ -101,6 +101,7 @@ const InputDialog = ({
             <SelectFont onChange={changeFontSize} value={fontValue}>
               <option value="nanum">왼손잡이도예뻐체</option>
               <option value="HSYuji">HS유지체</option>
+              <option value="Uiyeun">유연체</option>
             </SelectFont>
           </TextSetting>
         </TextSettingContainer>
