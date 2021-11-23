@@ -18,7 +18,7 @@ const MainContainer = ({ location, userLink }: any) => {
       .createMessage(linkCode, newMessage)
       .then((value) => {
         alert("저장되었습니다:)");
-        history.push("/");
+        history.push(`/result/${linkCode}`);
       })
       .catch(function () {
         alert(`not save..`);
