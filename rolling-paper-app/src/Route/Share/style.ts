@@ -34,7 +34,7 @@ export const LinkWrapper = styled.input`
 export const CopyButton = styled.div`
   position: absolute;
   right: 16px;
-  top: 4px;
+  top: 8px;
   font-weight: bold;
   color: #c4c4c4;
   cursor: pointer;
@@ -48,7 +48,7 @@ export const GoResultButton = styled.button`
   border: none;
   outline: none;
   align-content: center;
-  margin-top: 16px;
+  margin-top: 18px;
   padding: 12px;
   color: #eca4a6;
   text-decoration: none;
