@@ -34,8 +34,16 @@ a {
         text-decoration : none;
         color : inherit;
   }
+
+  button {
+      font-family: IM_Hyemin-Bold;
+  }
+
+  input {
+    font-family: IM_Hyemin-Bold;
+  }
 body {
-        font-family : apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell , 'Helvetica Neue', sans-serif;
+        font-family : IM_Hyemin-Bold, apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell , 'Helvetica Neue', sans-serif;
 }
 `;
 
