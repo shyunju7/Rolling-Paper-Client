@@ -40,7 +40,7 @@ const InputDialog = ({
     setValue: setAuthor,
     onChange: onChangeAuthor,
   } = useInput("");
-  const [fontValue, setFontValue] = useState("nanum");
+  const [fontValue, setFontValue] = useState("IM_Hyemin-Bold");
   const [showColorPicker, setShowColorPicker] = useState(false);
   const [showFontDropdown, setShowFontDropdown] = useState(false);
   const [pickedColor, setColor] = useState("#000000");
@@ -58,7 +58,7 @@ const InputDialog = ({
       const value = e.target.value;
       setFontValue(value);
     },
-    [fontValue]
+    [setFontValue]
   );
 
   useEffect(() => {
@@ -139,9 +139,7 @@ const InputDialog = ({
           onChange={onChangeAuthor}
           placeholder="작성자 이름"
         />
-        <AuthorNotice>
-          작성자를 입력하지 않을 경우, 익명으로 이름이 추가됩니다:)
-        </AuthorNotice>
+        <AuthorNotice>미입력시, 익명으로 이름이 추가됩니다:)</AuthorNotice>
       </AuthorContainer>
 
       <ButtonContainer>

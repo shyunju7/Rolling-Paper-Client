@@ -40,8 +40,9 @@ export const InputMessage = styled.textarea<{ fontValue: string }>`
   height: 15vh;
   margin-top: 16px;
   padding-left: 16px;
+  padding-top: 8px;
   font-family: ${(props) =>
-    props.fontValue !== null ? props.fontValue : "OwnGlyph"};
+    props.fontValue !== null ? props.fontValue : "IM_Hyemin-Bold"};
   color: ${(props) => (props.color ? props.color : "#000000")};
   resize: none;
   &:focus {
