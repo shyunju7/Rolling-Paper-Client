@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import MainPresenter from "./MainPresenter";
 import { Message, MessageDto } from "../../interfaces/Message.interface";
 import { linkApi, messageApi } from "../../api";
-import { useHistory } from "react-router-dom";
 
 const messageList: Message[] = [];
 
@@ -12,13 +11,13 @@ const MainContainer = ({ location, userLink }: any) => {
   const [userName, setUserName] = useState("");
   const [newMessage, setNewMessage] = useState(null);
   const linkCode = userLink ? userLink : location.pathname.substring(7);
-  const history = useHistory();
   const saveMessage = (newMessage: MessageDto) => {
     messageApi
       .createMessage(linkCode, newMessage)
       .then((value) => {
         alert("저장되었습니다:)");
-        history.push(`/result/${linkCode}`);
+
+        window.location.reload();
       })
       .catch(function () {
         alert(`not save..`);
