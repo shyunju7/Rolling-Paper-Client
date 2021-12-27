@@ -10,8 +10,7 @@ export const Container = styled.div`
 export const UserName = styled.h1`
   position: absolute;
   top: 50vh;
-  left: 50vw;
+  left: 45vw;
   font-size: 3rem;
   cursor: pointer;
-  border-radius: 50%;
 `;
