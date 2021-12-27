@@ -1,4 +1,4 @@
-import { Container } from "./style";
+import { Container, Button, ResultImage, ButtonWrapper } from "./style";
 import Header from "../../components/Header";
 const ResultPresenter = ({ userName, userLink, downloadCaptureImage }: any) => {
   const shareResultLink = () => {
@@ -14,9 +14,13 @@ const ResultPresenter = ({ userName, userLink, downloadCaptureImage }: any) => {
 
       <div id="resultImage">hello 여기 캡쳐하세용</div>
       <Container>
-        결과
-        <button onClick={shareResultLink}>결과 공유</button>
-        <button onClick={downloadCaptureImage(captureDiv)}>다운로드</button>
+        <ResultImage></ResultImage>
+        <ButtonWrapper>
+          <Button>다운로드</Button>
+          <Button>공유하기</Button>
+        </ButtonWrapper>
+        {/* <button onClick={shareResultLink}>결과 공유</button>
+        <button onClick={downloadCaptureImage(captureDiv)}>다운로드</button> */}
       </Container>
     </div>
   );
