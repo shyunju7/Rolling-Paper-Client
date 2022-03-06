@@ -11,7 +11,7 @@ interface StickerProps {
   color: string;
   author: string;
   contents: string;
-  saveMessage: Function;
+  saveMessage?: Function;
 }
 
 const Sticker = ({
@@ -62,17 +62,20 @@ const Sticker = ({
         {!draggableMessage ? null : (
           <button
             onClick={() => {
-              saveMessage({
-                id: id,
-                author: author && !author.startsWith(" ", 0) ? author : "익명",
-                color: color,
-                font: font,
-                contents: contents,
-                positionX: position.positionX,
-                positionY: position.positionY,
-                draggable: false,
-              });
-              setDraggableMessage(!draggableMessage);
+              if (saveMessage) {
+                saveMessage({
+                  id: id,
+                  author:
+                    author && !author.startsWith(" ", 0) ? author : "익명",
+                  color: color,
+                  font: font,
+                  contents: contents,
+                  positionX: position.positionX,
+                  positionY: position.positionY,
+                  draggable: false,
+                });
+                setDraggableMessage(!draggableMessage);
+              }
             }}
           >
             저장하기
