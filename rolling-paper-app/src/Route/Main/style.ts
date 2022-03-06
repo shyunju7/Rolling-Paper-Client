@@ -11,6 +11,6 @@ export const UserName = styled.h1`
   position: absolute;
   top: 50vh;
   left: 45vw;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
 `;

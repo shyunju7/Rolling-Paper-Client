@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50vw;
-  height: 45vh;
+  width: 50%;
+  height: 45%;
   background-color: #ffffff;
   border: 2px solid #c6c6c6;
   border-radius: 16px;
@@ -38,7 +38,7 @@ export const InputMessage = styled.textarea<{ fontValue: string }>`
   border-radius: 8px;
   width: 90%;
   height: 15vh;
-  margin-top: 16px;
+  margin-top: 24px;
   padding-left: 16px;
   padding-top: 8px;
   font-family: ${(props) =>
