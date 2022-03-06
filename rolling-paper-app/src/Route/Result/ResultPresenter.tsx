@@ -1,29 +1,28 @@
-import { Container, Button, ResultImage, ButtonWrapper } from "./style";
+import { Container } from "./style";
 import Header from "../../components/Header";
-const ResultPresenter = ({ userName, userLink, downloadCaptureImage }: any) => {
-  const shareResultLink = () => {
-    const link = "http://localhost:3000/result/" + userLink;
-    alert(link);
-  };
+import Sticker from "../../components/Sticker";
+import { Message } from "../../interfaces/Message.interface";
 
-  const captureDiv: any = document.querySelector("#resultImage");
-
-  return (
-    <div>
-      <Header userName={userName} text="님의 롤링페이퍼" />
-
-      <div id="resultImage">hello 여기 캡쳐하세용</div>
-      <Container>
-        <ResultImage></ResultImage>
-        <ButtonWrapper>
-          <Button>다운로드</Button>
-          <Button>공유하기</Button>
-        </ButtonWrapper>
-        {/* <button onClick={shareResultLink}>결과 공유</button>
-        <button onClick={downloadCaptureImage(captureDiv)}>다운로드</button> */}
-      </Container>
-    </div>
-  );
-};
+const ResultPresenter = ({ userName, data }: any) => (
+  <div>
+    <Header userName={userName} text="님의 롤링페이퍼" />
+    <Container>
+      {data &&
+        data.map((item: Message, index: number) => (
+          <Sticker
+            key={index}
+            id={item.id}
+            positionX={item.positionX}
+            positionY={item.positionY}
+            draggable={item.draggable}
+            font={item.font}
+            color={item.color}
+            contents={item.contents}
+            author={item.author}
+          />
+        ))}
+    </Container>
+  </div>
+);
 
 export default ResultPresenter;

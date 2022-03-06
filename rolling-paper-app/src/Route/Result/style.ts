@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin-top: 32px;
+  margin-top: 64px;
   display: flex;
 `;
 
@@ -28,12 +28,4 @@ export const Button = styled.div`
   &:first-child {
     margin-right: 32px;
   }
-`;
-
-export const ResultImage = styled.div`
-  width: 620px;
-  height: 340px;
-  border: 4px solid #dddddd;
-  border-radius: 8px;
-  margin-top: 52px;
 `;
