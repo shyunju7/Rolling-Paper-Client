@@ -13,7 +13,7 @@ export const Title = styled.h1`
   font-weight: 800;
   margin-bottom: 120px;
   color: #eca4a6;
-  font-size: 1rem;
+  font-size: 2rem;
 `;
 
 export const Description = styled.div`
@@ -29,6 +29,7 @@ export const Description = styled.div`
 
 export const InputName = styled.input`
   border: none;
+  width: 20vw;
   height: 6vh;
   border-radius: 32px;
   background-color: #f1f2f5;
@@ -52,7 +53,7 @@ export const Button = styled.button`
   color: #eca4a6;
   text-decoration: none;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   &:hover {
     color: #f9cfd0;
